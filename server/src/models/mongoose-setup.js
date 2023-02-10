@@ -8,9 +8,8 @@ const dbName = process.env.DB_NAME;
 
 async function connectToDatabase() {
   try {
-    await mongoose.c;
     console.log("Connecting to database...");
-    onnect(MANGO_URL, {
+    await mongoose.connect(MANGO_URL, {
       dbName,
       useNewUrlParser: true,
       useUnifiedTopology: true,
