@@ -1,12 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import SignUp from './pages/Sign-Up/SignUp';
+import LogIn from './pages/Log-In/LogIn';
+import SplashScreen from './pages/SplashScreen/SplashScreen';
+import { useState } from 'react';
 
 function App() {
+  const [token, setToken] = useState(null);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element />
+          <Route path='/' element={<SplashScreen />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/log-in' setToken={setToken} element={<LogIn />} />
         </Routes>
       </BrowserRouter>
     </div>

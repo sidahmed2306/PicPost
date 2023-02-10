@@ -32,7 +32,72 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.register-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 300px;
+
+
+  border-radius: 6px;
+  padding: 32px;
+}
+
+.register-form input,
+.register-form button {
+  border-radius: 12px;
+  border: none;
+  font-size: large;
+  min-height: 30px;
+  padding: 4px;
+}
+
+.register-form button {
+  color: white;
+  background-color: #E98090;
+  font-size: 16px;
+  padding: 18px, 16px, 18px, 16px;
+  cursor: pointer;
+  height: 55px;
+
+  border-radius: 100px;
+}
+
+.register-form select {
+  font-size: 1rem;
+  border-radius: 15px;
+  padding: 7.5px 0;
+}
+
+.error-message {
+  color: red;
+}
+
+.register input,
+.login input {
+  border: 0.2px solid #eee;
+}
+
+.register,
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.register h2,
+.login h2 {
+  font-size: 40px;
+}
+
+.login a {
+  padding: 0rem 3px 3rem 3px;
 }
