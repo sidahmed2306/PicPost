@@ -7,11 +7,11 @@ const userSchema = new mongoose.Schema({
   firstName: { type: String, require: true },
   lastName: { type: String, require: true },
   userName: { type: String, require: true },
-  birthDate: { type: Number, require: true },
+  birthDate: { type: String, require: true },
   email: { type: String, require: true },
   passwordSalt: { type: String, require: true },
   passwordhash: { type: String, require: true },
-  telNumber: { type: Number, require: false },
+  tlfNumber: { type: String, require: false },
   gender: { type: String, require: true },
   bio: [
     {

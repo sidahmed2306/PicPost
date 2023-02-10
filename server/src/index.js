@@ -16,10 +16,11 @@ function configServer() {
   const PORT = 9003;
   const app = express();
 
-  app.use(cors());
+  app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }));
   app.use(morgan("dev"));
   app.use(express.json());
 
+  app.set("trust proxy", 1);
   app.use(
     cookieSession({
       name: "session",
@@ -31,9 +32,8 @@ function configServer() {
     })
   );
 
+  app.use("/api/v1/users", userRouter);
   return new Promise((resolve, _) => {
-    app.use("/api/v1/users", userRouter);
-
     app.listen(PORT, () => {
       console.log("Server listening on port", PORT);
       resolve();
