@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import Navbar from '../../components/Navbar/Navbar';
 import Searchbar from '../../components/Search/Searchbar';
 import UserItem from '../../components/Search/UserItem';
 
@@ -30,7 +30,7 @@ export default function Search() {
                     <UserItem />;
                 })}
             </div>
-
+            <Navbar page={"search"} />
         </section>
     );
 }
