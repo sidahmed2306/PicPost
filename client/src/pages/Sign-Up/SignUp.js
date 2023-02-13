@@ -27,7 +27,6 @@ export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
-  console.log(gender);
 
   function register(event) {
     event.preventDefault(); //page reload verhindern!
