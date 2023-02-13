@@ -50,10 +50,12 @@ const putEditProfile = catchErrors(async (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     bio: req.body.bio,
+    link: req.body.link,
+    job: req.body.job,
     profilePicture: req.file?.filename,
   };
 
-  const result = await UserService.editProfile(updateInfo);
+  const result = await UserServices.editProfile(updateInfo);
   return res.json({
     status: "ok",
     result,

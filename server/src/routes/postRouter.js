@@ -6,7 +6,7 @@ const postRouter = express.Router();
 
 postRouter.post(
   "/",
-  makeAuthMiddleware({ tokenType: "refresh" }),
+  makeAuthMiddleware({ tokenType: "access" }),
   multer({ dest: "postImages" }).single("postPicture"),
   postController.addPost
 );

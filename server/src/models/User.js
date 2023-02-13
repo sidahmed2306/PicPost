@@ -13,13 +13,11 @@ const userSchema = new mongoose.Schema({
   passwordhash: { type: String, require: true },
   tlfNumber: { type: String, require: false },
   gender: { type: String, require: true },
-  bio: [
-    {
-      description: { type: String, require: false },
-      link: { type: String, require: false },
-      job: { type: String, require: false },
-    },
-  ],
+
+  bio: { type: String, require: false },
+  link: { type: String, require: false },
+  job: { type: String, require: false },
+
   profilPicture: { type: String, default: avatarPlaceHolder },
 });
 
