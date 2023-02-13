@@ -1,0 +1,17 @@
+.navbar {
+	height: 90px;
+	width: 428px;
+	background-color: white;
+	border-radius: 2rem 2rem 0 0;
+	position: absolute;
+	bottom: 0;
+	/* left: 0; */
+	display: flex;
+	justify-content: center;
+}
+
+.navbar-icons {
+	display: flex;
+	align-items: center;
+	gap: 8rem;
+}
