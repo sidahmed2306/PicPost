@@ -32,7 +32,7 @@ export default function LogIn({ setToken }) {
         }
         // result: { acccessToken, refreshToken }
         setToken(result.accessToken);
-        return navigate("/sign-up");
+        return navigate("/home");
       });
   }
 
