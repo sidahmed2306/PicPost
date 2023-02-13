@@ -54,7 +54,7 @@ export default function SignUp() {
           setErrorMessage(error.message);
           return;
         }
-        return navigate("/log-in");
+        return navigate("/home");
       });
   }
 
