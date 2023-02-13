@@ -4,6 +4,7 @@ const express = require("express");
 const cookieSession = require("cookie-session");
 const userRouter = require("./routes/userRouter");
 const { connectToDatabase } = require("./models/mongoose-setup");
+const postRouter = require("./routes/postRouter");
 
 const twoWeeksInMs = 14 * 24 * 60 * 60 * 1000;
 const cookieSessionSecret = process.env.COOKIE_SESSION_SECRET;
@@ -33,6 +34,9 @@ function configServer() {
   );
 
   app.use("/api/v1/users", userRouter);
+  app.use("/api/v1/post", postRouter);
+
+  app.use("/api/v1/img", express.static("imageUploads"));
   return new Promise((resolve, _) => {
     app.listen(PORT, () => {
       console.log("Server listening on port", PORT);

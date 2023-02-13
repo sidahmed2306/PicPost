@@ -23,7 +23,7 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [tlfNumber, setTlfNumber] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Male");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
