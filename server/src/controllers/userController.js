@@ -40,6 +40,15 @@ const postLogin = catchErrors(async (req, res) => {
   });
 });
 
+const getShowProfile = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+  const result = await UserServices.showProfile({ userId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 const putEditProfile = catchErrors(async (req, res) => {
   const userId = req.verifiedUserClaims.sub;
 
@@ -66,4 +75,5 @@ module.exports = {
   postRegister,
   postLogin,
   putEditProfile,
+  getShowProfile,
 };
