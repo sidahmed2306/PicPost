@@ -14,7 +14,7 @@ const postRegister = catchErrors(async (req, res) => {
     bio: req.body.bio,
     profilPicture: req.body.profilPicture,
   };
-  console.log(userInfos.email, "halloo");
+
   const newUser = await UserServices.userRegister(userInfos);
   return res.json({
     status: "ok",
@@ -27,7 +27,7 @@ const postLogin = catchErrors(async (req, res) => {
     email: req.body.email,
     password: req.body.password,
   };
-  const { accesToken, refreshToken } = await UserServices.userLogin(
+  const { accessToken, refreshToken } = await UserServices.userLogin(
     credentials
   );
 
@@ -36,11 +36,32 @@ const postLogin = catchErrors(async (req, res) => {
   }
   return res.json({
     status: "ok",
-    result: { accesToken, refreshToken },
+    result: { accessToken, refreshToken },
+  });
+});
+
+const putEditProfile = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+
+  console.log(req.body, req.file);
+  const updateInfo = {
+    userId,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    bio: req.body.bio,
+    profilePicture: req.file?.filename,
+  };
+
+  const result = await UserService.editProfile(updateInfo);
+  return res.json({
+    status: "ok",
+    result,
   });
 });
 
 module.exports = {
   postRegister,
   postLogin,
+  putEditProfile,
 };
