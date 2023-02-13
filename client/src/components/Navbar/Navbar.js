@@ -1,18 +1,18 @@
-import { ReactComponent as Home } from '../../assets/img/Home.svg';
-import { ReactComponent as Search } from '../../assets/img/Search.svg';
-import { ReactComponent as Upload } from '../../assets/img/Upload.svg';
-import { ReactComponent as Profile } from '../../assets/img/Profile.svg';
-import { ReactComponent as HomeC } from '../../assets/img/HomeC.svg';
-import { ReactComponent as SearchC } from '../../assets/img/SearchC.svg';
-import { ReactComponent as UploadC } from '../../assets/img/UploadC.svg';
-import { ReactComponent as ProfileC } from '../../assets/img/ProfileC.svg';
+import Home from '../../assets/img/Home.svg';
+import Search from '../../assets/img/Search.svg';
+import Upload from '../../assets/img/Upload.svg';
+import Profile from '../../assets/img/Profile.svg';
+import HomeC from '../../assets/img/HomeC.svg';
+import SearchC from '../../assets/img/SearchC.svg';
+import UploadC from '../../assets/img/UploadC.svg';
+import ProfileC from '../../assets/img/ProfileC.svg';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar(props) {
-    return (
-        <nav className="navbar">
+	return (
+		<nav className="navbar">
 			{props.page === "home" && (
 				<div className="navbar-icons">
 					<Link to="/home">
@@ -82,5 +82,5 @@ export default function Navbar(props) {
 				</div>
 			)}
 		</nav>
-    );
+	);
 }
