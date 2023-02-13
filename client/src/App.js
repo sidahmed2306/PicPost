@@ -20,9 +20,9 @@ function App() {
           <Route path="/" element={<SplashScreen />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LogIn setToken={setToken} />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<HomePage token={token} />} />
           <Route path="/detail/:postId" element={<CommentSection />} />
-          <Route path="/upload" element={<Upload />} />
+          <Route path="/upload" element={<Upload token={token} />} />
         </Routes>
       </BrowserRouter>
     </div>
