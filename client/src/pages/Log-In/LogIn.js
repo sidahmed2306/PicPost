@@ -30,7 +30,6 @@ export default function LogIn({ setToken }) {
           setErrorMessage(error.message);
           return;
         }
-        console.log(result);
         setToken(result.accessToken);
         return navigate("/home");
       });

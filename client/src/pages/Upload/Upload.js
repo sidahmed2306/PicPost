@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 import UploadByGallery from "../../components/Upload/UploadByGallery";
 
 export default function Upload({ token }) {
@@ -44,6 +45,7 @@ export default function Upload({ token }) {
       />
       <textarea value={caption} onChange={handleCaptionChange} />
       <button onClick={upload}>Upload</button>
+      <Navbar page={"upload"} />
     </div>
   );
 }
