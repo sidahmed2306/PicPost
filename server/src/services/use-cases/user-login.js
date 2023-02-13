@@ -15,9 +15,11 @@ async function userLogin({ email, password }) {
   if (!validPassword) {
     throw new Error("email or password false");
   }
-  const accessToken = createToken(user, "acces");
+  const accessToken = createToken(user, "access");
+  console.log("access-token", accessToken);
   const refreshToken = createToken(user, "refresh");
-  console.log(accessToken, refreshToken);
+  console.log("refresh-token", refreshToken);
+
   return { accessToken, refreshToken };
 }
 
