@@ -6,6 +6,7 @@ export default function Upload() {
     const onFileChange = event => {
         setSelectedFile(event.target.files[0]);
     };
+
     return (
         <div>
             <UploadByGallery selectedFile={selectedFile} onFileChange={onFileChange} />
