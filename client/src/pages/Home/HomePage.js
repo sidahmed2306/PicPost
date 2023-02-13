@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Post from "../../components/Home/Post";
+import Navbar from '../../components/Navbar/Navbar';
 
 export default function HomePage() {
   const [recentPosts, setRecentPosts] = useState([]);
@@ -24,6 +25,7 @@ export default function HomePage() {
       {recentPosts.map((post, index) => {
         return <Post key={index} picture={post.picture} users={users} />;
       })}
+      <Navbar page={"home"} />
     </section>
   );
 }

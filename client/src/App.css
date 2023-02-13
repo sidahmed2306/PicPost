@@ -102,3 +102,10 @@
 .login a {
   padding: 0rem 3px 3rem 3px;
 }
+
+/* div flex ist in der Profile-Page */
+.div-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
