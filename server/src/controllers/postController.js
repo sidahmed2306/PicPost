@@ -8,6 +8,7 @@ const addPost = catchErrors(async (req, res) => {
     comments: req.body.comments,
     author: req.verifiedUserClaims.sub,
   };
+  console.log(newPost);
   const result = await PostServices.addPost(newPost);
   return res.json({
     status: "ok",

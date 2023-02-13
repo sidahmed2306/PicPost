@@ -6,12 +6,11 @@ import SplashScreen from "./pages/SplashScreen/SplashScreen";
 import { useState } from "react";
 import Upload from "./pages/Upload/Upload";
 import HomePage from "./pages/Home/HomePage";
-import CommentSection from './pages/comments/CommentSection';
-
+import CommentSection from "./pages/comments/CommentSection";
 
 function App() {
   const [token, setToken] = useState("");
-
+  console.log(token);
 
   return (
     <div className="App">
