@@ -20,7 +20,7 @@ export default function Upload({ token }) {
     formData.append("postPicture", selectedFile, selectedFile.name);
     formData.append("caption", caption);
 
-    fetch("http://localhost:9003/api/v1/post/", {
+    fetch("http://localhost:9003/api/v1/post/add-post", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

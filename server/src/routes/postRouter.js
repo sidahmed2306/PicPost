@@ -5,7 +5,7 @@ const multer = require("multer");
 const postRouter = express.Router();
 
 postRouter.post(
-  "/",
+  "/add-post",
   makeAuthMiddleware({ tokenType: "access" }),
   multer({ dest: "postImages" }).single("postPicture"),
   postController.addPost

@@ -19,6 +19,18 @@ userRouter.post(
   userController.postLogin
 );
 
+userRouter.get(
+  "/profile",
+  makeAuthMiddleware({ tokenType: "access" }),
+  userController.getShowProfile
+);
+
+userRouter.get(
+  "/home",
+  makeAuthMiddleware({ tokenType: "access" }),
+  userController.getShowPost
+);
+
 userRouter.put(
   "/profile",
   makeAuthMiddleware({ tokenType: "access" }),
