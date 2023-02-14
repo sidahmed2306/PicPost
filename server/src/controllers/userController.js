@@ -40,6 +40,23 @@ const postLogin = catchErrors(async (req, res) => {
   });
 });
 
+const getShowProfile = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+  const result = await UserServices.showProfile({ userId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
+const getShowPost = catchErrors(async (req, res) => {
+  const result = await UserServices.showPosts();
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 const putEditProfile = catchErrors(async (req, res) => {
   const userId = req.verifiedUserClaims.sub;
 
@@ -50,10 +67,12 @@ const putEditProfile = catchErrors(async (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     bio: req.body.bio,
+    link: req.body.link,
+    job: req.body.job,
     profilePicture: req.file?.filename,
   };
 
-  const result = await UserService.editProfile(updateInfo);
+  const result = await UserServices.editProfile(updateInfo);
   return res.json({
     status: "ok",
     result,
@@ -64,4 +83,6 @@ module.exports = {
   postRegister,
   postLogin,
   putEditProfile,
+  getShowProfile,
+  getShowPost,
 };

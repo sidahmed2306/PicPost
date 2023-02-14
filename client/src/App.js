@@ -11,7 +11,7 @@ import ProfilePage from "./pages/Profile/ProfilePage";
 
 function App() {
   const [token, setToken] = useState("");
-
+  console.log(token);
 
   return (
     <div className="App">
