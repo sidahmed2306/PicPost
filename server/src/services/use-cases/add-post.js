@@ -1,8 +1,8 @@
 const { Post } = require("../../models");
 
-async function addPost({ image, caption, author, comments }) {
+async function addPost({ img, caption, author, comments }) {
   const post = await Post.create({
-    image,
+    img,
     caption,
     author,
     comments,
