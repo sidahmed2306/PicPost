@@ -17,6 +17,8 @@ const userSchema = new mongoose.Schema({
   link: { type: String, require: false },
   job: { type: String, require: false },
   profilPicture: { type: String, default: avatarPlaceHolder },
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 
 const User = mongoose.model("User", userSchema);

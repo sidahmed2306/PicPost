@@ -3,7 +3,7 @@ const { catchErrors } = require("./catchError");
 
 const addPost = catchErrors(async (req, res) => {
   const newPost = {
-    img: req.body.img,
+    img: req.file.path,
     caption: req.body.caption,
     comments: req.body.comments,
     author: req.verifiedUserClaims.sub,

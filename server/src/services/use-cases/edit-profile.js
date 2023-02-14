@@ -7,11 +7,27 @@ async function editProfile({
   email,
   bio,
   profilePicture,
+  job,
+  link,
+  tlfNumber,
+  userName,
+  birthDate,
 }) {
   const user = await User.findByIdAndUpdate(
     userId,
     {
-      $set: { firstName, lastName, email, bio, profilePicture },
+      $set: {
+        firstName,
+        lastName,
+        email,
+        bio,
+        profilePicture,
+        job,
+        link,
+        tlfNumber,
+        userName,
+        birthDate,
+      },
     },
     { new: true }
   ).exec();
@@ -21,7 +37,11 @@ async function editProfile({
     lastName: user.lastName,
     email: user.email,
     profilePicture: user.profilePicture,
-    bio: user.bio,
+    job: user.job,
+    link: user.link,
+    tlfNumber: user.tlfNumber,
+    userName: user.userName,
+    birthDate: user.birthDate,
   };
 }
 
