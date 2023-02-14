@@ -2,8 +2,15 @@ const { User, Post } = require("../../models");
 
 async function showProfile({ userId }) {
   const user = await User.findById(userId);
-  const userid = user._id;
-  const post = await Post.find({ userid });
+  console.log(userId);
+  const post = await Post.find({ author: userId });
+  console.log(post);
+  // const posts = await Post.find({}).sort({ date: -1 }).populate([
+  //   "author",
+  //   "comments.author",
+  //   // "followers.author",
+  //   // "following.author",
+  // ]);
   const postImage = post.map((elt) => elt.img);
   const postCount = post.length;
   const followers = user.followers;
@@ -23,6 +30,7 @@ async function showProfile({ userId }) {
     link: user.link,
     job: user.job,
     link: user.link,
+    post,
     postPicturs: post.img,
     postCount,
     followersCount,
