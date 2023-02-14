@@ -25,6 +25,12 @@ userRouter.get(
   userController.getShowProfile
 );
 
+userRouter.get(
+  "/home",
+  makeAuthMiddleware({ tokenType: "access" }),
+  userController.getShowPost
+);
+
 userRouter.put(
   "/profile",
   makeAuthMiddleware({ tokenType: "access" }),
