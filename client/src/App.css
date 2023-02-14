@@ -103,9 +103,42 @@
   padding: 0rem 3px 3rem 3px;
 }
 
-/* div flex ist in der Profile-Page */
+/* Profile-Page */
 .div-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+}
+
+.div-flex div {
+  margin: 0 auto;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 150px);
+  place-items: center;
+}
+
+.grid-item {
+  object-fit: contain;
+  height: 100px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+
+}
+
+.profile-picture-w-edit-profile {
+  position: relative;
+}
+
+.edit-profile {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 245px;
 }
