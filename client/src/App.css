@@ -1,19 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'Urbanist-Reg';
   src: url('../src/assets/font/Urbanist-Regular.ttf');
 }
+
 @font-face {
   font-family: 'Urbanist-Med';
   src: url('../src/assets/font/Urbanist-Medium.ttf');
 }
+
 @font-face {
   font-family: 'Urbanist-Bold';
   src: url('../src/assets/font/Urbanist-Bold.ttf');
 }
+
 @font-face {
   font-family: 'Urbanist-SBold';
   src: url('../src/assets/font/Urbanist-SemiBold.ttf');
 }
+
 .App {
   text-align: center;
 }
