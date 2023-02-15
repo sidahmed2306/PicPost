@@ -10,10 +10,10 @@ import CommentSection from "./pages/comments/CommentSection";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import EditProfile from "./pages/Profile/EditProfile";
 import Search from "./pages/Search/Search";
+import ProfileDitail from "./pages/Profile/ProfileDetail";
 
 function App() {
   const [token, setToken] = useState("");
-
 
   return (
     <div className="App">
@@ -29,6 +29,10 @@ function App() {
           <Route path="/profile" element={<ProfilePage token={token} />} />
           <Route path="/edit-profile" element={<EditProfile token={token} />} />
           <Route path="/search" element={<Search token={token} />} />
+          <Route
+            path="/profil-detail/:id"
+            element={<ProfileDitail token={token} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
