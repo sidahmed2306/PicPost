@@ -1,8 +1,3 @@
-import { ReactComponent as Plus } from "../../assets/img/Plus.svg";
-import { useEffect, useState } from "react";
-import React from "react";
-import { ReactComponent as UploadCam } from "../../assets/img/UploadCam.svg";
-import "./UploadByGallery.css";
 import { ReactComponent as X } from "../../assets/img/x.svg";
 import React from "react";
 import { ReactComponent as UploadCam } from "../../assets/img/UploadCam.svg";
@@ -20,7 +15,9 @@ export default function UploadByGallery({ onFileChange, selectedFile }) {
   return (
     <div className="UploadByGallery-wrapper">
       <div className="plus-wrapper">
-        <Plus />
+        <Link to="/home">
+          <X />
+        </Link>
         <p>New Post</p>
       </div>
       <div className="uploadDiv" id="new">
