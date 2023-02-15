@@ -1,0 +1,32 @@
+.user-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.users-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 4px;
+}
+.users-info h4 {
+  font-family: "Urbanist-Med";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.users-info p {
+  font-family: "Urbanist-Med";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #616161;
+}
+.user-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}

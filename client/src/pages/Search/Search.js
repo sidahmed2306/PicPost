@@ -17,28 +17,33 @@ export default function Search({ token }) {
     })
       .then((res) => res.json())
       .then((user) => setAllUser(user.result.user));
-  }, []);
+  }, [token]);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-    console.log("searchterm", searchTerm);
+    if (event.target.value === "") {
+      return setFilteredUsers([]);
+    }
     setFilteredUsers(
       allUser.filter((user) =>
-        user.userName.toLowerCase().includes(searchTerm.toLowerCase())
+        user.userName.toLowerCase().includes(event.target.value.toLowerCase())
       )
     );
   };
+
   console.log(allUser);
+  console.log(filteredUsers);
   return (
     <section>
       <Searchbar searchTerm={searchTerm} handleChange={handleChange} />
       <div>
-        {filteredUsers.map((user) => {
+        {filteredUsers?.map((user) => {
           return (
             <UserItem
               profilePicture={user.profilePicture.url}
               userName={user.userName}
               job={user.job}
+              id={user._id}
             />
           );
         })}

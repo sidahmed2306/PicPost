@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+html {
+  font-size: 62.5%;
+}
+body {
   max-width: 400px;
   display: flex;
   flex-direction: column;
@@ -13,7 +16,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: Urbanist-Bold
+  font-family: Urbanist-Bold;
 }
 
 p {
@@ -24,25 +27,24 @@ a {
   font-family: Urbanist-Med;
 }
 
-
 @font-face {
-  font-family: 'Urbanist-Reg';
-  src: url('../src/assets/font/Urbanist-Regular.ttf');
+  font-family: "Urbanist-Reg";
+  src: url("../src/assets/font/Urbanist-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'Urbanist-Med';
-  src: url('../src/assets/font/Urbanist-Medium.ttf');
+  font-family: "Urbanist-Med";
+  src: url("../src/assets/font/Urbanist-Medium.ttf");
 }
 
 @font-face {
-  font-family: 'Urbanist-Bold';
-  src: url('../src/assets/font/Urbanist-Bold.ttf');
+  font-family: "Urbanist-Bold";
+  src: url("../src/assets/font/Urbanist-Bold.ttf");
 }
 
 @font-face {
-  font-family: 'Urbanist-SBold';
-  src: url('../src/assets/font/Urbanist-SemiBold.ttf');
+  font-family: "Urbanist-SBold";
+  src: url("../src/assets/font/Urbanist-SemiBold.ttf");
 }
 
 .App {
@@ -92,7 +94,6 @@ a {
   gap: 8px;
   min-width: 300px;
 
-
   border-radius: 6px;
   padding: 32px;
 }
@@ -108,7 +109,7 @@ a {
 
 .register-form button {
   color: white;
-  background-color: #E98090;
+  background-color: #e98090;
   font-size: 16px;
   padding: 18px, 16px, 18px, 16px;
   cursor: pointer;
