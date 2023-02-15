@@ -5,6 +5,7 @@ const { editProfile } = require("./use-cases/edit-profile");
 const { showProfile } = require("./use-cases/show-profile");
 const { showPosts } = require("./use-cases/show-posts");
 const { showUsers } = require("./use-cases/schow-allUser");
+const { showProfileDetail } = require("./use-cases/schow-detail-profil");
 
 const UserServices = {
   userRegister,
@@ -12,7 +13,8 @@ const UserServices = {
   editProfile,
   showProfile,
   showPosts,
-  showUsers
+  showUsers,
+  showProfileDetail,
 };
 
 const PostServices = {

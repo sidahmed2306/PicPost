@@ -61,6 +61,15 @@ const getShowProfile = catchErrors(async (req, res) => {
   });
 });
 
+const getShowProfileDetail = catchErrors(async (req, res) => {
+  const userId = req.params.id;
+  const result = await UserServices.showProfileDetail({ userId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 const getShowPost = catchErrors(async (req, res) => {
   const result = await UserServices.showPosts();
   return res.json({
@@ -112,4 +121,5 @@ module.exports = {
   getShowProfile,
   getShowPost,
   getShowUser,
+  getShowProfileDetail
 };
