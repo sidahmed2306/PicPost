@@ -1,7 +1,8 @@
+
 .caption{
-    width: 400px;
-    border-radius: 20px;
-    padding: 15px 10px;
+    width: 92%;
+    border-radius: 25px;
+    padding: 15px 0;
     border: none;
     resize: none;
     background-color: #BDBDBD;
@@ -13,8 +14,8 @@
 }
 .uploadButton{
     background: #FF4D67;
-    padding: 8px 24px 8px 24px;
-    color: #fff;
+    padding: 13px 40px 13px 40px;
+    color: #FAFAFA;
     border-radius: 25px;
     cursor: pointer;
     font-size: 18px;
@@ -24,5 +25,15 @@
     border: none;
 }
 .uploadButton:hover{
-    opacity: 90%;
+    opacity: 80%;
+}
+textarea::placeholder{
+    text-align: center;
+    margin-top: 30px;
+}
+.glowing-U{
+
+}
+.glowing-P{
+
 }

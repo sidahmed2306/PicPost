@@ -1,8 +1,8 @@
-import { ReactComponent as Plus } from '../../assets/img/Plus.svg';
-import { useEffect, useState } from "react";
+import { ReactComponent as X } from '../../assets/img/x.svg';
 import React from 'react';
 import { ReactComponent as UploadCam } from '../../assets/img/UploadCam.svg';
 import './UploadByGallery.css';
+import { Link } from 'react-router-dom';
 
 export default 
 
@@ -17,10 +17,12 @@ const uploadLabel = document.getElementById('label');
     } 
     return (
         <div className='UploadByGallery-wrapper'>
-        <div className='plus-wrapper'>
-            <Plus/>
-            <p>New Post</p>
-        </div>
+            <div className='plus-wrapper'>
+                    <Link to="/home">
+				    <X />
+                    </Link>
+                <p>New Post</p>
+            </div>
         <div className='uploadDiv' id='new'>
             <input type="file" onChange={onFileChange} id='files'/>
             <label htmlFor="files" id='label'><UploadCam className="cam"/>Upload</label>
