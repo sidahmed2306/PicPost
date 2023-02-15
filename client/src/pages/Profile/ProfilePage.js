@@ -57,7 +57,7 @@ export default function ProfilePage({ token }) {
       <article className="profile-bio">
         <div className="profile-picture-w-edit-profile">
           <img
-            src={profileInfo ? profileInfo.profilePicture : "Loading..."}
+            src={profileInfo ? profileInfo.profilePicture.url : "Loading..."}
             alt="profil-picture"
             className="profile-picture"
             style={{ width: "120px" }}
@@ -74,7 +74,7 @@ export default function ProfilePage({ token }) {
         <p>{profileInfo ? profileInfo.job : "Loading..."}</p>
         <a className="bio">{profileInfo ? profileInfo.bio : "Loading..."}</a>
         <Link className="link">
-          <a>{profileInfo ? profileInfo.link : "Loading..."}</a>
+          {profileInfo ? profileInfo.link : "Loading..."}
         </Link>
 
         <div className="div-flex counts">
@@ -97,8 +97,8 @@ export default function ProfilePage({ token }) {
         <h3 className="Feeds">Feeds</h3>
       </div>
       <section className="grid-container">
-        {postImg?.map((elt) => (
-          <img className="grid-item" src={`${elt.url}`} alt="" />
+        {postImg?.map((elt, index) => (
+          <img key={index} className="grid-item" src={`${elt.url}`} alt="" />
         ))}
       </section>
       <Navbar page={"profile"} />

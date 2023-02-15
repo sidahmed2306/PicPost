@@ -34,13 +34,16 @@ export default function HomePage({ token }) {
       });
   }, [token]);
   console.log(result);
-  console.log(result.author);
+  console.log(
+    "result",
+    result.map((elt) => elt.author.profilePicture.url)
+  );
   return (
     <>
       <section>
         {result.map((elt) => (
           <Post
-            profilePicture={elt.author.profilPicture}
+            profilePicture={elt.author.profilePicture.url}
             username={elt.author.userName}
             job={elt.author.job}
             postImage={elt.img?.url}

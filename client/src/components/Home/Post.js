@@ -1,18 +1,17 @@
-import React from 'react';
-import LikeAndComment from './LikeAndComment';
-import ProfilePost from './ProfilePost';
+import React from "react";
+import LikeAndComment from "./LikeAndComment";
+import ProfilePost from "./ProfilePost";
 
 export default function Post(props) {
-    return (
-        <div className='post-article'>
-            <ProfilePost
-                username={props.username}
-                profilePicture={props.src}
-                job={props.job} />
-            <img className='post-img' src={props.postImage}></img>
-            <LikeAndComment
-                likes={props.likes}
-                comments={props.comments} />
-        </div>
-    );
+  return (
+    <div className="post-article">
+      <ProfilePost
+        username={props.username}
+        profilePicture={props.profilePicture}
+        job={props.job}
+      />
+      <img className="post-img" src={props.postImage}></img>
+      <LikeAndComment likes={props.likes} comments={props.comments} />
+    </div>
+  );
 }
