@@ -1,3 +1,4 @@
+import "./ProfilePage.css";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import miniLogo from "../../assets/img/miniLogo.svg";
@@ -37,25 +38,29 @@ export default function ProfilePage({ token }) {
     return (
         <div className="profile">
             <div className="div-flex">
-                <img src={miniLogo}></img>
+                <Link to="/home">
+                    <img src={miniLogo}></img>
+                </Link>
                 <h2 className="profile-username">{profileInfo ? profileInfo.userName : "Loading..."}</h2>
-                <div>
+                <div className="icons">
                     <Link to="/upload">
                         <img src={addNewPost}></img>
                     </Link>
                     <Link to="/edit-profile">
                         <img src={pen}></img>
                     </Link>
-                    <img src={showMore}></img>
+                    <Link>
+                        <img src={showMore}></img>
+                    </Link>
                 </div>
             </div>
-            <article>
+            <article className="profile-bio">
                 <div className="profile-picture-w-edit-profile">
                     <img
                         src={profileInfo ? profileInfo.profilePicture : "Loading..."}
                         alt="profil-picture"
                         className="profile-picture"
-                        style={{ width: "100px" }}
+                        style={{ width: "120px" }}
                     ></img>
                     <Link to="/edit-profile">
                         <img className="edit-profile" src={editProfile}></img>
@@ -68,15 +73,16 @@ export default function ProfilePage({ token }) {
                 </h3>
                 <p>{profileInfo ? profileInfo.job : "Loading..."}</p>
                 <a>{profileInfo ? profileInfo.bio : "Loading..."}</a>
-                <Link>
-                    <p>{profileInfo ? profileInfo.link : "Loading..."}</p>
+                <Link className="link">
+                    <a >{profileInfo ? profileInfo.link : "Loading..."}</a>
                 </Link>
-                <div className="div-flex">
+
+                <div className="div-flex counts">
                     <div>
                         <h3>{profileInfo ? profileInfo.postCount : "Loading..."}</h3>
                         <p>Posts</p>
                     </div>
-                    <div>
+                    <div className="border">
                         <h3>{profileInfo ? profileInfo.followersCount : "Loading..."}</h3>
                         <p>Follower</p>
                     </div>
@@ -89,7 +95,6 @@ export default function ProfilePage({ token }) {
             <section className="grid-container">
                 {postImg?.map((elt) => (
                     <img className="grid-item"
-                        style={{ width: "100px" }}
                         src={`http://localhost:9003/${elt}`}
                         alt=""
                     />

@@ -8,6 +8,8 @@ import Upload from "./pages/Upload/Upload";
 import HomePage from "./pages/Home/HomePage";
 import CommentSection from "./pages/comments/CommentSection";
 import ProfilePage from "./pages/Profile/ProfilePage";
+import EditProfile from "./pages/Profile/EditProfile";
+
 
 function App() {
   const [token, setToken] = useState("");
