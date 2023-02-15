@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 import UploadByGallery from "../../components/Upload/UploadByGallery";
 import './Upload.css';
 
@@ -20,7 +21,7 @@ export default function Upload({ token }) {
     formData.append("postPicture", selectedFile, selectedFile.name);
     formData.append("caption", caption);
 
-    fetch("http://localhost:9003/api/v1/post/", {
+    fetch("http://localhost:9003/api/v1/post/add-post", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
