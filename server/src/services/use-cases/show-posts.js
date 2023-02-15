@@ -1,15 +1,16 @@
 const { User, Post } = require("../../models");
 
 async function showPosts() {
-  const posts = await Post.find({}).sort({ date: -1 }).populate([
+  const posts = await Post.find({}).sort({ createdAt: -1 }).populate([
     "author",
     "comments.author",
+    "comments.text",
     // "followers.author",
     // "following.author",
   ]);
 
-  console.log(posts);
-
+  const comments = posts.map((elt) => elt.comments);
+  console.log(comments);
   return {
     posts,
   };

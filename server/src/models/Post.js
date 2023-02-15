@@ -2,8 +2,14 @@ const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
   img: {
-    type: String,
-    required: true,
+    id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
   },
   likes: [
     {

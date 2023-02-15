@@ -4,6 +4,7 @@ const { userController } = require("../controllers");
 const { validate } = require("../middleware/validate");
 const { makeAuthMiddleware } = require("../middleware/doAuth");
 const { UserValidations } = require("../validations");
+const { upload } = require("../middleware/imgMulter");
 
 const userRouter = express.Router();
 
@@ -34,7 +35,7 @@ userRouter.get(
 userRouter.put(
   "/profile",
   makeAuthMiddleware({ tokenType: "access" }),
-  multer({ dest: "imageUploads" }).single("profilePicture"),
+  upload.array("profilePicture"),
   userController.putEditProfile
 );
 

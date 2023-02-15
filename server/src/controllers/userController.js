@@ -1,7 +1,18 @@
 const { UserServices } = require("../services");
+const { fileUpload } = require("../services/utilis/uploadDao");
 const { catchErrors } = require("./catchError");
+const fs = require("fs");
 
 const postRegister = catchErrors(async (req, res) => {
+  const uploader = async (path) => await fileUpload(path, "Images");
+  const file = req.files[0];
+  const { path } = file;
+  const newPath = await uploader(path);
+
+  fs.unlink(path, (err) => {
+    console.log(err);
+  });
+
   const userInfos = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -12,7 +23,7 @@ const postRegister = catchErrors(async (req, res) => {
     telNumber: req.body.telNumber,
     gender: req.body.gender,
     bio: req.body.bio,
-    profilPicture: req.body.profilPicture,
+    profilPicture: newPath,
   };
 
   const newUser = await UserServices.userRegister(userInfos);
@@ -59,6 +70,14 @@ const getShowPost = catchErrors(async (req, res) => {
 
 const putEditProfile = catchErrors(async (req, res) => {
   const userId = req.verifiedUserClaims.sub;
+  const uploader = async (path) => await fileUpload(path, "Images");
+  const file = req.files[0];
+  const { path } = file;
+  const newPath = await uploader(path);
+
+  fs.unlink(path, (err) => {
+    console.log(err);
+  });
 
   console.log(req.body, req.file);
   const updateInfo = {
@@ -69,7 +88,7 @@ const putEditProfile = catchErrors(async (req, res) => {
     bio: req.body.bio,
     link: req.body.link,
     job: req.body.job,
-    profilePicture: req.file?.filename,
+    profilePicture: newPath,
   };
 
   const result = await UserServices.editProfile(updateInfo);

@@ -2,9 +2,10 @@ const { User, Post } = require("../../models");
 
 async function showProfile({ userId }) {
   const user = await User.findById(userId);
+
   console.log(userId);
-  const post = await Post.find({ author: userId });
-  console.log(post);
+  const post = await Post.find({ author: userId }).sort({ createdAt: -1 });
+  // console.log(post);
   // const posts = await Post.find({}).sort({ date: -1 }).populate([
   //   "author",
   //   "comments.author",

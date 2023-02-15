@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
 }
@@ -44,8 +49,6 @@
   flex-direction: column;
   gap: 8px;
   min-width: 300px;
-
-
   border-radius: 6px;
   padding: 32px;
 }
@@ -61,7 +64,7 @@
 
 .register-form button {
   color: white;
-  background-color: #E98090;
+  background-color: #e98090;
   font-size: 16px;
   padding: 18px, 16px, 18px, 16px;
   cursor: pointer;
