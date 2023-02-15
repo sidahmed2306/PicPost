@@ -6,6 +6,8 @@ import showMore from "../../assets/img/showMore.svg";
 import commentIcon from "../../assets/img/commentIcon.svg";
 import like from "../../assets/img/likeHeart.svg";
 import "./home.css";
+import ProfilePost from "../../components/Home/ProfilePost";
+import LikeAndComment from "../../components/Home/LikeAndComment";
 
 export default function HomePage({ token }) {
   const [result, setResult] = useState([]);
@@ -31,37 +33,20 @@ export default function HomePage({ token }) {
         }
       });
   }, [token]);
-
   console.log(result);
+  console.log(result.author);
   return (
     <>
       <section>
         {result.map((elt) => (
-          <article className="post-article">
-            <div className="author-profil">
-              <div className="author-info">
-                <img src={`${elt.author.profilePicture.url}`} alt="" />
-                <div className="author-p">
-                  <p>{elt.author.userName}</p>
-                  <p>{elt.author.job}</p>
-                </div>
-              </div>
-              <img className="schowsvg" src={showMore} alt="" />
-            </div>
-            <div>
-              <img className="post-img" src={`${elt.img?.url}`} alt="" />
-            </div>
-            <div className="likes-comments">
-              <div className="comments">
-                <p className="comments-p">{elt.comments.length}</p>
-                <img src={commentIcon} alt="" />
-              </div>
-              <div className="likes">
-                <p className="likes-p">{elt.likes.length}</p>
-                <img src={like} alt="" />
-              </div>
-            </div>
-          </article>
+          <Post
+            profilePicture={elt.author.profilPicture}
+            username={elt.author.userName}
+            job={elt.author.job}
+            postImage={elt.img?.url}
+            likes={elt.likes}
+            comments={elt.comments}
+          />
         ))}
       </section>
       <Navbar page={"home"} />

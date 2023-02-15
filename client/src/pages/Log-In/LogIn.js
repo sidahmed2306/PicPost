@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/img/Logo.svg";
 
-console.log(apiBaseUrl);
+
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

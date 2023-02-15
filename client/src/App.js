@@ -13,7 +13,7 @@ import Search from "./pages/Search/Search";
 
 function App() {
   const [token, setToken] = useState("");
-  console.log(token);
+
 
   return (
     <div className="App">
@@ -22,6 +22,7 @@ function App() {
           <Route path="/" element={<SplashScreen />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LogIn setToken={setToken} />} />
+          <Route path="/login" element={<LogIn setToken={setToken} />} />
           <Route path="/home" element={<HomePage token={token} />} />
           <Route path="/detail/:postId" element={<CommentSection />} />
           <Route path="/upload" element={<Upload token={token} />} />

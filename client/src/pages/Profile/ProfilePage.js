@@ -6,6 +6,7 @@ import pen from "../../assets/img/pen.svg";
 import showMore from "../../assets/img/showMore.svg";
 import { Link } from "react-router-dom";
 import editProfile from "../../assets/img/editProfile.svg";
+import Feeds from "../../assets/img/Feeds.svg";
 import "./ProfilePage.css";
 
 export default function ProfilePage({ token }) {
@@ -31,9 +32,6 @@ export default function ProfilePage({ token }) {
         }
       });
   }, [token]);
-  console.log(profileInfo);
-
-  console.log(postImg);
 
   return (
     <div className="profile">
@@ -59,7 +57,7 @@ export default function ProfilePage({ token }) {
       <article className="profile-bio">
         <div className="profile-picture-w-edit-profile">
           <img
-            src={profileInfo ? profileInfo.profilePicture.url : "Loading..."}
+            src={profileInfo ? profileInfo.profilePicture : "Loading..."}
             alt="profil-picture"
             className="profile-picture"
             style={{ width: "120px" }}
@@ -74,7 +72,7 @@ export default function ProfilePage({ token }) {
             : "Loading..."}
         </h3>
         <p>{profileInfo ? profileInfo.job : "Loading..."}</p>
-        <a>{profileInfo ? profileInfo.bio : "Loading..."}</a>
+        <a className="bio">{profileInfo ? profileInfo.bio : "Loading..."}</a>
         <Link className="link">
           <a>{profileInfo ? profileInfo.link : "Loading..."}</a>
         </Link>
@@ -94,6 +92,10 @@ export default function ProfilePage({ token }) {
           </div>
         </div>
       </article>
+      <div className="Feeds-container">
+        <img src={Feeds}></img>
+        <h3 className="Feeds">Feeds</h3>
+      </div>
       <section className="grid-container">
         {postImg?.map((elt) => (
           <img className="grid-item" src={`${elt.url}`} alt="" />
