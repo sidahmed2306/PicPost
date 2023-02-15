@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { ReactComponent as UploadCam } from "../../assets/img/UploadCam.svg";
 import "./UploadByGallery.css";
+import { ReactComponent as X } from "../../assets/img/x.svg";
+import React from "react";
+import { ReactComponent as UploadCam } from "../../assets/img/UploadCam.svg";
+import "./UploadByGallery.css";
+import { Link } from "react-router-dom";
 
 export default function UploadByGallery({ onFileChange, selectedFile }) {
   const divPic = document.getElementById("new");

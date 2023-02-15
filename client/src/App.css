@@ -3,7 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
 h1,
 h2,
 h3,

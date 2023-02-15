@@ -39,8 +39,9 @@ label[for="files"] {
   font-weight: 700;
   line-height: 25.2px;
 }
+
 label[for="files"]:hover {
-  opacity: 90%;
+  opacity: 80%;
 }
 .selected {
   border-radius: 25px;
