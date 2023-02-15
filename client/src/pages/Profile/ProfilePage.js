@@ -1,4 +1,3 @@
-import "./ProfilePage.css";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import miniLogo from "../../assets/img/miniLogo.svg";
@@ -7,6 +6,8 @@ import pen from "../../assets/img/pen.svg";
 import showMore from "../../assets/img/showMore.svg";
 import { Link } from "react-router-dom";
 import editProfile from "../../assets/img/editProfile.svg";
+import "./ProfilePage.css";
+
 
 export default function ProfilePage({ token }) {
     const [postImg, setPostImg] = useState();
