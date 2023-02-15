@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import UploadByGallery from "../../components/Upload/UploadByGallery";
+import './Upload.css';
 
 export default function Upload({ token }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -42,10 +43,10 @@ export default function Upload({ token }) {
         selectedFile={selectedFile}
         onFileChange={onFileChange}
         name={"postPicture"}
+        className="uploadGallery"
       />
-      <textarea value={caption} onChange={handleCaptionChange} />
-      <button onClick={upload}>Upload</button>
-      <Navbar page={"upload"} />
+      <textarea value={caption} onChange={handleCaptionChange} className="caption"/>
+      <button onClick={upload} className="uploadButton">Upload</button>
     </div>
   );
 }
