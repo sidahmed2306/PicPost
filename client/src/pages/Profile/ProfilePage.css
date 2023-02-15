@@ -1,11 +1,13 @@
+.profile {
+    margin-top: 2vh;
+}
+
 .div-flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
 }
-
-
 
 .grid-container {
     display: grid;
@@ -22,7 +24,8 @@
 
 .profile-picture {
     border-radius: 50%;
-    margin-top: 13px;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
 }
 
 .profile-picture-w-edit-profile {
@@ -31,7 +34,7 @@
 
 .edit-profile {
     position: absolute;
-    bottom: 0.4rem;
+    bottom: 0.8rem;
     left: 245px;
 }
 
@@ -39,7 +42,7 @@
     border-left: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
     padding: 0 20px;
-    margin-bottom: 2rem;
+    margin: 20px;
 }
 
 div.icons {
@@ -50,7 +53,7 @@ div.icons {
 }
 
 .counts {
-    margin: 1vh auto;
+    margin: 2vh auto;
     border-bottom: 1px solid #EEEEEE;
 
 }
@@ -66,15 +69,36 @@ div.icons {
 
 .profile-bio h3 {
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
 }
 
+.profile-bio p {
+    margin-bottom: 0.5rem;
+}
 
+a.bio {
+    display: block;
+}
 
 a.link {
     margin-top: 0.5rem;
     text-decoration: none;
-    display: block;
-    color: linear-gradient(286.17deg, #246BFD 0%, #6F9EFF 100%);
+    display: inline-block;
+    color: linear-gradient(180deg, #246BFD 0%, #6F9EFF 100%);
+    font-family: Urbanist-Bold;
+
+}
+
+.Feeds-container {
+    display: flex;
+    width: fit-content;
+    padding: 0 2rem 0.75rem 2rem;
+    border-bottom: 4px solid #FF4D67;
+    margin-bottom: 0.75rem;
+}
+
+.Feeds {
+    color: #FF4D67;
+    margin-left: 12px;
 
 }
