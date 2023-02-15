@@ -9,10 +9,11 @@ async function editProfile({
   profilePicture,
   job,
   link,
-  tlfNumber,
+  telNumber,
   userName,
   birthDate,
 }) {
+  console.log("test5", profilePicture);
   const user = await User.findByIdAndUpdate(
     userId,
     {
@@ -24,14 +25,14 @@ async function editProfile({
         profilePicture,
         job,
         link,
-        tlfNumber,
+        telNumber,
         userName,
         birthDate,
       },
     },
     { new: true }
   ).exec();
-
+  console.log("user", user);
   return {
     firstName: user.firstName,
     lastName: user.lastName,
@@ -39,7 +40,7 @@ async function editProfile({
     profilePicture: user.profilePicture,
     job: user.job,
     link: user.link,
-    tlfNumber: user.tlfNumber,
+    telNumber: user.telNumber,
     userName: user.userName,
     birthDate: user.birthDate,
   };

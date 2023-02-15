@@ -1,17 +1,18 @@
 const { UserServices } = require("../services");
-const { fileUpload } = require("../services/utilis/uploadDao");
+const { fileUploadAndRemove } = require("../services/utilis/uploadDao");
 const { catchErrors } = require("./catchError");
 const fs = require("fs");
+const { showUsers } = require("../services/use-cases/schow-allUser");
 
 const postRegister = catchErrors(async (req, res) => {
-  const uploader = async (path) => await fileUpload(path, "Images");
-  const file = req.files[0];
-  const { path } = file;
-  const newPath = await uploader(path);
+  // const uploader = async (path) => await fileUpload(path, "Images");
+  // const file = req.files[0];
+  // const { path } = file;
+  // const newPath = await uploader(path);
 
-  fs.unlink(path, (err) => {
-    console.log(err);
-  });
+  // fs.unlink(path, (err) => {
+  //   console.log(err);
+  // });
 
   const userInfos = {
     firstName: req.body.firstName,
@@ -23,7 +24,7 @@ const postRegister = catchErrors(async (req, res) => {
     telNumber: req.body.telNumber,
     gender: req.body.gender,
     bio: req.body.bio,
-    profilPicture: newPath,
+    // profilPicture,
   };
 
   const newUser = await UserServices.userRegister(userInfos);
@@ -68,18 +69,19 @@ const getShowPost = catchErrors(async (req, res) => {
   });
 });
 
+const getShowUser = catchErrors(async (req, res) => {
+  const result = await UserServices.showUsers({});
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 const putEditProfile = catchErrors(async (req, res) => {
   const userId = req.verifiedUserClaims.sub;
-  const uploader = async (path) => await fileUpload(path, "Images");
-  const file = req.files[0];
-  const { path } = file;
-  const newPath = await uploader(path);
-
-  fs.unlink(path, (err) => {
-    console.log(err);
-  });
 
   console.log(req.body, req.file);
+
   const updateInfo = {
     userId,
     firstName: req.body.firstName,
@@ -88,9 +90,14 @@ const putEditProfile = catchErrors(async (req, res) => {
     bio: req.body.bio,
     link: req.body.link,
     job: req.body.job,
-    profilePicture: newPath,
+    telNumber: req.body.telNumber,
   };
-
+  const file = req.files[0];
+  if (file) {
+    const uploader = async (path) => await fileUploadAndRemove(path, "Images");
+    const newPath = await uploader(file.path);
+    updateInfo.profilePicture = newPath;
+  }
   const result = await UserServices.editProfile(updateInfo);
   return res.json({
     status: "ok",
@@ -104,4 +111,5 @@ module.exports = {
   putEditProfile,
   getShowProfile,
   getShowPost,
+  getShowUser,
 };

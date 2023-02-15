@@ -9,7 +9,7 @@ import HomePage from "./pages/Home/HomePage";
 import CommentSection from "./pages/comments/CommentSection";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import EditProfile from "./pages/Profile/EditProfile";
-
+import Search from "./pages/Search/Search";
 
 function App() {
   const [token, setToken] = useState("");
@@ -27,6 +27,7 @@ function App() {
           <Route path="/upload" element={<Upload token={token} />} />
           <Route path="/profile" element={<ProfilePage token={token} />} />
           <Route path="/edit-profile" element={<EditProfile token={token} />} />
+          <Route path="/search" element={<Search token={token} />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,12 +11,22 @@ const userSchema = new mongoose.Schema({
   email: { type: String, require: true },
   passwordSalt: { type: String, require: true },
   passwordhash: { type: String, require: true },
-  tlfNumber: { type: String, require: false },
+  telNumber: { type: String, require: false },
   gender: { type: String, require: true },
   bio: { type: String, require: false },
   link: { type: String, require: false },
   job: { type: String, require: false },
-  profilPicture: { type: String, default: avatarPlaceHolder },
+  // profilPicture: { type: String, default: avatarPlaceHolder },
+  profilePicture: {
+    id: {
+      type: String,
+      required: false,
+    },
+    url: {
+      type: String,
+      default: avatarPlaceHolder,
+    },
+  },
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });

@@ -59,7 +59,7 @@ export default function ProfilePage({ token }) {
       <article className="profile-bio">
         <div className="profile-picture-w-edit-profile">
           <img
-            src={profileInfo ? profileInfo.profilePicture : "Loading..."}
+            src={profileInfo ? profileInfo.profilePicture.url : "Loading..."}
             alt="profil-picture"
             className="profile-picture"
             style={{ width: "120px" }}

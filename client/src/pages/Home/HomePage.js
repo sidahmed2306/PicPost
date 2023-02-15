@@ -40,7 +40,7 @@ export default function HomePage({ token }) {
           <article className="post-article">
             <div className="author-profil">
               <div className="author-info">
-                <img src={`${elt.author.profilPicture}`} alt="" />
+                <img src={`${elt.author.profilePicture.url}`} alt="" />
                 <div className="author-p">
                   <p>{elt.author.userName}</p>
                   <p>{elt.author.job}</p>

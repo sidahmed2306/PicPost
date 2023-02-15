@@ -1,10 +1,10 @@
 const { PostServices } = require("../services");
-const { fileUpload } = require("../services/utilis/uploadDao");
+const { fileUploadAndRemove } = require("../services/utilis/uploadDao");
 const { catchErrors } = require("./catchError");
 const fs = require("fs");
 
 const addPost = catchErrors(async (req, res) => {
-  const uploader = async (path) => await fileUpload(path, "Images");
+  const uploader = async (path) => await fileUploadAndRemove(path, "Images");
   const file = req.files[0];
   const { path } = file;
   const newPath = await uploader(path);
