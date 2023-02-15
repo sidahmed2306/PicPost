@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Urbanist-Bold
+}
+
+p {
+  font-family: Urbanist-SBold;
+}
+
+a {
+  font-family: Urbanist-Med;
+}
+
+
 @font-face {
   font-family: 'Urbanist-Reg';
   src: url('../src/assets/font/Urbanist-Regular.ttf');

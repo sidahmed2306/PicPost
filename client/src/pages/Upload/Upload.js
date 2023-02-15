@@ -16,7 +16,7 @@ export default function Upload({ token }) {
   };
 
   function upload() {
-    console.log("hallo", token);
+
     const formData = new FormData();
     formData.append("postPicture", selectedFile, selectedFile.name);
     formData.append("caption", caption);

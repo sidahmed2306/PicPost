@@ -4,13 +4,15 @@ import ProfilePost from './ProfilePost';
 
 export default function Post(props) {
     return (
-        <div className='post'>
+        <div className='post-article'>
             <ProfilePost
-                userName={props.userName}
-                profilePicture={props.profilePicture}
-                bio={props.bio} />
-            <img src={props.picture}></img>
-            <LikeAndComment likedBy={props.likedBy} comments={props.comments} />
+                username={props.username}
+                profilePicture={props.src}
+                job={props.job} />
+            <img className='post-img' src={props.postImage}></img>
+            <LikeAndComment
+                likes={props.likes}
+                comments={props.comments} />
         </div>
     );
 }

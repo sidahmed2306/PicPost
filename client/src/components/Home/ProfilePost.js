@@ -3,13 +3,15 @@ import showMore from '../../assets/img/showMore.svg';
 
 export default function ProfilePost(props) {
     return (
-        <div className='top'>
-            <img src={props.profilePicture}></img>
-            <div>
-                <h4>{props.userName}</h4>
-                <p>{props.job}</p>
+        <div className='author-profil'>
+            <div className='author-info'>
+                <img src={props.profilePicture}></img>
+                <div className='author-p'>
+                    <h4>{props.username}</h4>
+                    <p>{props.job}</p>
+                </div>
             </div>
-            <img src={showMore}></img>
+            <img className='schowsvg' src={showMore}></img>
         </div>
     );
 }
