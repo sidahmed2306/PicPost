@@ -5,6 +5,8 @@ import addNewPost from "../../assets/img/addNewPost.svg";
 import pen from "../../assets/img/pen.svg";
 import showMore from "../../assets/img/showMore.svg";
 import { Link } from "react-router-dom";
+import editProfile from "../../assets/img/editProfile.svg";
+import "./ProfilePage.css";
 
 export default function ProfilePage({ token }) {
   const [postImg, setPostImg] = useState();
@@ -36,23 +38,36 @@ export default function ProfilePage({ token }) {
   return (
     <div className="profile">
       <div className="div-flex">
-        <img src={miniLogo}></img>
-        <h2>{profileInfo ? profileInfo.userName : "Loading..."}</h2>
-        <div>
+        <Link to="/home">
+          <img src={miniLogo}></img>
+        </Link>
+        <h2 className="profile-username">
+          {profileInfo ? profileInfo.userName : "Loading..."}
+        </h2>
+        <div className="icons">
           <Link to="/upload">
             <img src={addNewPost}></img>
           </Link>
-          <img src={pen}></img>
-          <img src={showMore}></img>
+          <Link to="/edit-profile">
+            <img src={pen}></img>
+          </Link>
+          <Link>
+            <img src={showMore}></img>
+          </Link>
         </div>
       </div>
-      <article>
-        <img
-          src={profileInfo ? profileInfo.profilePicture : "Loading..."}
-          alt="profil-picture"
-          className="profilepicture"
-          style={{ width: "100px" }}
-        ></img>
+      <article className="profile-bio">
+        <div className="profile-picture-w-edit-profile">
+          <img
+            src={profileInfo ? profileInfo.profilePicture : "Loading..."}
+            alt="profil-picture"
+            className="profile-picture"
+            style={{ width: "120px" }}
+          ></img>
+          <Link to="/edit-profile">
+            <img className="edit-profile" src={editProfile}></img>
+          </Link>
+        </div>
         <h3>
           {profileInfo
             ? `${profileInfo.firstName} ${profileInfo.lastName}`
@@ -60,23 +75,28 @@ export default function ProfilePage({ token }) {
         </h3>
         <p>{profileInfo ? profileInfo.job : "Loading..."}</p>
         <a>{profileInfo ? profileInfo.bio : "Loading..."}</a>
-        <Link>
-          <p>{profileInfo ? profileInfo.link : "Loading..."}</p>
+        <Link className="link">
+          <a>{profileInfo ? profileInfo.link : "Loading..."}</a>
         </Link>
-        <div className="div-flex">
-          <div>{profileInfo ? profileInfo.postCount : "Loading..."}</div>
-          <div>{profileInfo ? profileInfo.followersCount : "Loading..."}</div>
-          <div>{profileInfo ? profileInfo.followingCount : "Loading..."}</div>
+
+        <div className="div-flex counts">
+          <div>
+            <h3>{profileInfo ? profileInfo.postCount : "Loading..."}</h3>
+            <p>Posts</p>
+          </div>
+          <div className="border">
+            <h3>{profileInfo ? profileInfo.followersCount : "Loading..."}</h3>
+            <p>Follower</p>
+          </div>
+          <div>
+            <h3>{profileInfo ? profileInfo.followingCount : "Loading..."}</h3>
+            <p>Following</p>
+          </div>
         </div>
       </article>
-      <section>
+      <section className="grid-container">
         {postImg?.map((elt) => (
-          <div
-            className="grid"
-            style={{ display: "flex", flexDirection: "column", gap: "50px" }}
-          >
-            <img style={{ width: "200px" }} src={`${elt.url}`} alt="" />
-          </div>
+          <img className="grid-item" src={`${elt.url}`} alt="" />
         ))}
       </section>
       <Navbar page={"profile"} />

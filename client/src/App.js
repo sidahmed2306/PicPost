@@ -8,6 +8,8 @@ import Upload from "./pages/Upload/Upload";
 import HomePage from "./pages/Home/HomePage";
 import CommentSection from "./pages/comments/CommentSection";
 import ProfilePage from "./pages/Profile/ProfilePage";
+import EditProfile from "./pages/Profile/EditProfile";
+
 
 function App() {
   const [token, setToken] = useState("");
@@ -24,6 +26,7 @@ function App() {
           <Route path="/detail/:postId" element={<CommentSection />} />
           <Route path="/upload" element={<Upload token={token} />} />
           <Route path="/profile" element={<ProfilePage token={token} />} />
+          <Route path="/edit-profile" element={<EditProfile token={token} />} />
         </Routes>
       </BrowserRouter>
     </div>

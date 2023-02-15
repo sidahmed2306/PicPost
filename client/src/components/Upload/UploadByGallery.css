@@ -1,0 +1,49 @@
+
+.UploadByGallery-wrapper{
+    padding: 4%;
+}
+.plus-wrapper{
+    display: flex;
+}
+.plus-wrapper p{
+    font-family: Urbanist-Bold;
+    font-size: 24px;
+    margin: -0.5% 2% 2% 2%;
+    line-height: 28.8px;
+    font-weight: 700;
+}
+.uploadDiv{
+    background-color: #BDBDBD;
+    border-radius: 35px;
+    padding: 41.6% 8.7%;
+}
+.cam{
+    margin-right: 2%;
+}
+input[type="file"]{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 0.1px;
+    height: 0.1px;
+}
+label[for="files"]{
+    background: #FF4D67;
+    padding: 14px 24px 10px 24px;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Urbanist-Bold;
+    font-weight: 700;
+    line-height: 25.2px;
+}
+label[for="files"]:hover{
+    opacity: 90%;
+}
+.selected{
+    border-radius: 25px;
+    width: 100%;
+}

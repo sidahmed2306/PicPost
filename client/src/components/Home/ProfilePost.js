@@ -7,7 +7,7 @@ export default function ProfilePost(props) {
             <img src={props.profilePicture}></img>
             <div>
                 <h4>{props.userName}</h4>
-                <p>{props.bio.job}</p>
+                <p>{props.job}</p>
             </div>
             <img src={showMore}></img>
         </div>
