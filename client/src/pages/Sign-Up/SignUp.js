@@ -22,7 +22,7 @@ export default function SignUp() {
   const [birthDate, setBirthDate] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [tlfNumber, setTlfNumber] = useState("");
+  const [telNumber, setTelNumber] = useState("");
   const [gender, setGender] = useState("Male");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -42,7 +42,7 @@ export default function SignUp() {
         birthDate,
         email,
         password,
-        tlfNumber,
+        telNumber,
         gender,
       }),
     })
@@ -101,8 +101,8 @@ export default function SignUp() {
         <input
           type="number"
           placeholder="YourDIGITS"
-          value={tlfNumber}
-          onChange={(e) => setTlfNumber(e.target.value)}
+          value={telNumber}
+          onChange={(e) => setTelNumber(e.target.value)}
         />
         <select
           onChange={(event) => setGender(event.target.value)}

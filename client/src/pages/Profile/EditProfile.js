@@ -3,13 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { makeFormData } from "../../utils/formData";
 export default function EditProfile({ token }) {
   const [firstName, setFirstName] = useState("");
+  const [result, setResult] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
   const [job, setJob] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [email, setEmail] = useState("");
-  const [tlfNumber, setTlfNumber] = useState("");
+  const [telNumber, setTelNumber] = useState("");
   const [gender, setGender] = useState("");
+  const [status, setStatus] = useState("");
   const [link, setlink] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
@@ -28,7 +30,8 @@ export default function EditProfile({ token }) {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
-          setFirstName(result.userName);
+          setStatus(status);
+          setFirstName(result.firstName);
           setLastName(result.lastName);
           setUserName(result.userName);
           setBirthDate(result.birthDate);
@@ -36,12 +39,14 @@ export default function EditProfile({ token }) {
           setEmail(result.email);
           setlink(result.link);
           setProfilePicturePreview(result.profilePicture.url);
+          setTelNumber(result.telNumber);
+          setResult(result);
         } else {
           setErrorMessage(error.message);
         }
       });
-  }, [token]);
-
+  }, [token, status]);
+  console.log("result", result);
   function editProfile(event) {
     event.preventDefault();
 
@@ -50,7 +55,7 @@ export default function EditProfile({ token }) {
       lastName,
       email,
       job,
-      tlfNumber,
+      telNumber,
       profilePicture,
       link,
       gender,
@@ -142,8 +147,8 @@ export default function EditProfile({ token }) {
         <input
           type="tel"
           placeholder="Telefon"
-          value={tlfNumber}
-          onChange={(e) => setTlfNumber(e.target.value)}
+          value={telNumber}
+          onChange={(e) => setTelNumber(e.target.value)}
         />
         <select
           onChange={(event) => setGender(event.target.value)}

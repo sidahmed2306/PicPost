@@ -11,7 +11,11 @@ export default function Post(props) {
         job={props.job}
       />
       <img className="post-img" src={props.postImage}></img>
-      <LikeAndComment likes={props.likes} comments={props.comments} />
+      <LikeAndComment
+        id={props.id}
+        likes={props.likes}
+        comments={props.comments}
+      />
     </div>
   );
 }
