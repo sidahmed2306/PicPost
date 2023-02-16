@@ -93,6 +93,7 @@ const putEditProfile = catchErrors(async (req, res) => {
 
   const updateInfo = {
     userId,
+    userName: req.body.userName,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -121,5 +122,5 @@ module.exports = {
   getShowProfile,
   getShowPost,
   getShowUser,
-  getShowProfileDetail
+  getShowProfileDetail,
 };

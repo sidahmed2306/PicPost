@@ -11,4 +11,17 @@ postRouter.post(
   upload.array("postPicture"),
   postController.addPost
 );
+
+postRouter.post(
+  "/add-comment/:id",
+  makeAuthMiddleware({ tokenType: "access" }),
+  postController.postAddComment
+);
+
+postRouter.get(
+  "/add-comment/:id",
+  makeAuthMiddleware({ tokenType: "access" }),
+  postController.getShowPostDetail
+);
+
 module.exports = postRouter;
