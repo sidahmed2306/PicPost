@@ -45,14 +45,8 @@ export default function Upload({ token }) {
         name={"postPicture"}
         className="uploadGallery"
       />
-      <textarea value={caption} onChange={handleCaptionChange} className="caption" placeholder="comment your post..."/>
-      <button onClick={upload} className="uploadButton">
-        <span className="glowing-U">U
-          <span className="glowing-P">
-          p
-          </span>
-        </span>
-        load</button>
+      <textarea value={caption} onChange={handleCaptionChange} className="caption" placeholder="caption your post..."/>
+      <button onClick={upload} className="uploadButton">Post</button>
       <Navbar page={"upload"} />
     </div>
   );

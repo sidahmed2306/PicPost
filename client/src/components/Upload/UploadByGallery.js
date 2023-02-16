@@ -14,11 +14,12 @@ export default function UploadByGallery({ onFileChange, selectedFile }) {
   }
   return (
     <div className="UploadByGallery-wrapper">
-      <div className="plus-wrapper">
-        <Link to="/home">
+      <div className="plus-wrapper shadow">
+        <Link to="/profile">
           <X />
         </Link>
         <p>New Post</p>
+        <div className="empty"></div>
       </div>
       <div className="uploadDiv" id="new">
         <input type="file" onChange={onFileChange} id="files" />

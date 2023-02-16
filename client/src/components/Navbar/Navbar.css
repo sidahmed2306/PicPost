@@ -1,21 +1,25 @@
-/* body{
+body{
     background-color: orange;
-} */
+}
 /* placeholder in textarea
     use navigate ansehen und auf upload button übertragen 
-    button reindrücken
-    textarea kleiner machen */
+    
+    profilepage stylen ohne followbutton*/
 .navbar {
-  height: 80px;
+  height: 70px;
   min-width: 400px;
   background-color: white;
   border-radius: 25px 25px 0 0;
   position: fixed;
   bottom: 0;
   display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* margin: 0 2%; */
+  box-shadow: 5px 5px 12px #919191, -5px -5px 12px #FFFFFF;
+  border: 1px solid #FF4d67;
+
+  border-radius: 25px 25px 0 0;
+background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  11px 11px 26px #afafaf,
+             -11px -11px 26px #ffffff;
 }
 
 .navbar-icons {
@@ -23,4 +27,28 @@
   align-items: center;
   gap: 5rem;
   margin: auto;
+}
+.home1{
+    border-radius: 15px;
+background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  5px 5px 20px #9c9c9c,
+             -5px -5px 20px #ffffff;
+}
+.search1{
+    border-radius: 15px;
+background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  5px 5px 20px #9c9c9c,
+             -5px -5px 20px #ffffff;
+}
+.upload1{
+    border-radius: 15px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  5px 5px 20px #9c9c9c,
+                 -5px -5px 20px #ffffff;
+}
+.profile1{
+    border-radius: 15px;
+background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  5px 5px 20px #9c9c9c,
+             -5px -5px 20px #ffffff;
 }
