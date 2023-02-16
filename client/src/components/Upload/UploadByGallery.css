@@ -1,13 +1,19 @@
+body{
+    background-color: #f1f1f1;
+}
 .UploadByGallery-wrapper {
   padding: 4%;
 }
 .plus-wrapper {
   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
 }
 .plus-wrapper p {
   font-family: Urbanist-Bold;
   font-size: 24px;
-  margin: -0.5% 2% 2% 2%;
+  margin: -0.5% 2% 2% -10%;
   line-height: 28.8px;
   font-weight: 700;
 }
@@ -15,6 +21,13 @@
   background-color: #bdbdbd;
   border-radius: 35px;
   padding: 41.6% 8.7%;
+  border: 1px solid #FF4d67;
+  box-shadow: 5px 5px 12px #919191, -5px -5px 12px #FFFFFF;
+
+  border-radius: 25px;
+background: linear-gradient(145deg, #f0f0f0, #cacaca);
+box-shadow:  11px 11px 26px #afafaf,
+             -11px -11px 26px #ffffff;
 }
 .cam {
   margin-right: 2%;
@@ -38,6 +51,17 @@ label[for="files"] {
   font-family: Urbanist-Bold;
   font-weight: 700;
   line-height: 25.2px;
+  background: linear-gradient(145 deg, #DDDDDD, #BABABA);
+    box-shadow: 5px 5px 12px #919191, -5px -5px 12px #FFFFFF;
+    margin: 20px;
+    font-size: 2rem;
+    border: 1px solid #CFCFCF;
+
+    border-radius: 25px;
+}
+label[for="files"]:active{
+    box-shadow: inset 11px 11px 30px #AAAAAA, inset -11px -11px 30px #F4F4F4;
+    border: 1px solid #CFCFCFCF;
 }
 
 label[for="files"]:hover {

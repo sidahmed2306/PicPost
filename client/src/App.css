@@ -8,6 +8,8 @@ body {
   max-width: 400px;
   display: flex;
   flex-direction: column;
+  /* background-color: #828282; */
+  /* background-color: rgb(94, 94, 94); */
 }
 h1,
 h2,
@@ -103,6 +105,7 @@ a {
   font-size: large;
   min-height: 30px;
   padding: 4px;
+  padding-left: 20px;
 }
 
 .register-form button {
