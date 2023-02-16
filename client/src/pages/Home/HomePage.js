@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Post from "../../components/Home/Post";
 import Navbar from "../../components/Navbar/Navbar";
 import showMore from "../../assets/img/showMore.svg";
@@ -48,6 +48,7 @@ export default function HomePage({ token }) {
             job={elt.author.job}
             postImage={elt.img?.url}
             likes={elt.likes}
+            id={elt._id}
             comments={elt.comments}
           />
         ))}

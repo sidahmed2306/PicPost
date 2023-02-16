@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-import editProfile from "../../assets/img/editProfile.svg";
+
 const ProfileDitail = ({ token }) => {
   const [postImg, setPostImg] = useState();
   const [postCount, setPostCount] = useState();
@@ -37,8 +37,8 @@ const ProfileDitail = ({ token }) => {
   console.log(postImg);
   return (
     <>
-      <></>
       <article className="profile-bio">
+        <h4>{profileInfo ? profileInfo.userName : "Loading..."}</h4>
         <div className="profile-picture-w-edit-profile">
           <img
             src={profileInfo ? profileInfo.profilePicture.url : "Loading..."}
@@ -46,9 +46,6 @@ const ProfileDitail = ({ token }) => {
             className="profile-picture"
             style={{ width: "120px" }}
           ></img>
-          <Link to="/edit-profile">
-            <img className="edit-profile" src={editProfile}></img>
-          </Link>
         </div>
         <h3>
           {profileInfo

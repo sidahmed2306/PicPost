@@ -5,7 +5,7 @@ const cookieSession = require("cookie-session");
 const userRouter = require("./routes/userRouter");
 const { connectToDatabase } = require("./models/mongoose-setup");
 const postRouter = require("./routes/postRouter");
-const dataFilePfad = __dirname + "/postImages";
+
 const twoWeeksInMs = 14 * 24 * 60 * 60 * 1000;
 const cookieSessionSecret = process.env.COOKIE_SESSION_SECRET;
 if (!cookieSessionSecret) {

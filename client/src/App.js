@@ -24,11 +24,15 @@ function App() {
           <Route path="/log-in" element={<LogIn setToken={setToken} />} />
           <Route path="/login" element={<LogIn setToken={setToken} />} />
           <Route path="/home" element={<HomePage token={token} />} />
-          <Route path="/detail/:postId" element={<CommentSection />} />
+          <Route
+            path="/add-comment/:id"
+            element={<CommentSection token={token} />}
+          />
           <Route path="/upload" element={<Upload token={token} />} />
           <Route path="/profile" element={<ProfilePage token={token} />} />
           <Route path="/edit-profile" element={<EditProfile token={token} />} />
           <Route path="/search" element={<Search token={token} />} />
+
           <Route
             path="/profil-detail/:id"
             element={<ProfileDitail token={token} />}
