@@ -10,13 +10,14 @@ import ProfilePost from "../../components/Home/ProfilePost";
 import LikeAndComment from "../../components/Home/LikeAndComment";
 
 export default function HomePage({ token }) {
+  const [id, setId] = useState("");
   const [result, setResult] = useState([]);
+  const [newLike, setNewLike] = useState([]);
 
   const [users, setUsers] = useState([]);
 
   const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
+  const fetchPost = () => {
     fetch(`http://localhost:9003/api/v1/users/home`, {
       method: "GET",
       headers: {
@@ -32,17 +33,47 @@ export default function HomePage({ token }) {
           setErrorMessage(error.message);
         }
       });
-  }, [token]);
-  console.log(result);
-  console.log(
-    "result",
-    result.map((elt) => elt.author.profilePicture.url)
-  );
+  };
+  useEffect(fetchPost, [token]);
+
+  const addLike = (postId) => {
+    console.log("postId", postId);
+    setId(postId);
+    fetch(`http://localhost:9003/api/v1/post/add-like`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        id: postId,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to add like");
+        }
+        setNewLike(response);
+        return response.json();
+      })
+      .then((newLike) => {
+        fetchPost();
+      })
+      .catch((err) => {
+        console.error(`Error adding like: ${err.message}`);
+        throw err;
+      });
+  };
+  console.log(newLike);
+  console.log("result", result);
   return (
     <>
       <section>
         {result.map((elt) => (
           <Post
+            addlike={() => {
+              addLike(elt._id);
+            }}
             profilePicture={elt.author.profilePicture.url}
             username={elt.author.userName}
             job={elt.author.job}

@@ -12,6 +12,7 @@ export default function Post(props) {
       />
       <img className="post-img" src={props.postImage}></img>
       <LikeAndComment
+        addlike={props.addlike}
         id={props.id}
         likes={props.likes}
         comments={props.comments}

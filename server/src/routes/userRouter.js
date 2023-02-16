@@ -9,6 +9,12 @@ const { upload } = require("../middleware/imgMulter");
 const userRouter = express.Router();
 
 userRouter.post(
+  "/refresh-token",
+  makeAuthMiddleware({ tokenType: "refresh" }),
+  userController.postRefreshToken
+);
+
+userRouter.post(
   "/register",
   validate(UserValidations.registerUserValidation.body),
   userController.postRegister

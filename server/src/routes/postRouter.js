@@ -18,6 +18,12 @@ postRouter.post(
   postController.postAddComment
 );
 
+postRouter.post(
+  "/add-like",
+  makeAuthMiddleware({ tokenType: "access" }),
+  postController.postAddLike
+);
+
 postRouter.get(
   "/add-comment/:id",
   makeAuthMiddleware({ tokenType: "access" }),

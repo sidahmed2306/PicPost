@@ -9,8 +9,10 @@ const { showProfileDetail } = require("./use-cases/schow-detail-profil");
 const { addComment } = require("./use-cases/add-comment");
 const { showPostDetail } = require("./use-cases/show-PostDetail");
 const { addLike } = require("./use-cases/add-like");
+const { refreshToken } = require("./use-cases/refresh-token");
 
 const UserServices = {
+  refreshToken,
   userRegister,
   userLogin,
   editProfile,

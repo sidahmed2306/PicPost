@@ -2,7 +2,15 @@ const { UserServices } = require("../services");
 const { fileUploadAndRemove } = require("../services/utilis/uploadDao");
 const { catchErrors } = require("./catchError");
 const fs = require("fs");
-const { showUsers } = require("../services/use-cases/schow-allUser");
+
+const postRefreshToken = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+  const result = await UserServices.refreshToken({ userId });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
 const postRegister = catchErrors(async (req, res) => {
   // const uploader = async (path) => await fileUpload(path, "Images");
@@ -79,7 +87,7 @@ const getShowPost = catchErrors(async (req, res) => {
 });
 
 const getShowUser = catchErrors(async (req, res) => {
-  const result = await UserServices.showUsers({});
+  const result = await UserServices.showUsers();
   return res.json({
     status: "ok",
     result,
@@ -123,4 +131,5 @@ module.exports = {
   getShowPost,
   getShowUser,
   getShowProfileDetail,
+  postRefreshToken,
 };

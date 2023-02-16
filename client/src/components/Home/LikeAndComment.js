@@ -7,7 +7,7 @@ export default function LikeAndComment(props) {
   return (
     <div className="likes-comments">
       <div className="likes">
-        <img src={likeHeart}></img>
+        <img onClick={props.addlike} src={likeHeart}></img>
         <h5 className="likes-p">{props.likes.length}</h5>
       </div>
       <Link to={`/add-comment/${props.id}`} className="comments">
