@@ -10,7 +10,7 @@ async function showPosts() {
   ]);
 
   const comments = posts.map((elt) => elt.comments);
-  console.log(comments);
+
   return {
     posts,
   };

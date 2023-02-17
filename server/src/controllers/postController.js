@@ -4,14 +4,12 @@ const { catchErrors } = require("./catchError");
 const fs = require("fs");
 const { text } = require("express");
 
-
-
 const addPost = catchErrors(async (req, res) => {
   const uploader = async (path) => await fileUploadAndRemove(path, "Images");
   const file = req.files[0];
   const { path } = file;
   const newPath = await uploader(path);
-  console.log(newPath);
+
   fs.unlink(path, (err) => {
     console.log(err);
   });
@@ -21,7 +19,7 @@ const addPost = catchErrors(async (req, res) => {
     author: req.verifiedUserClaims.sub,
     comments: req.body.comments,
   };
-  console.log(newPost);
+
   const result = await PostServices.addPost(newPost);
   return res.json({
     status: "ok",
@@ -40,11 +38,11 @@ const getShowPostDetail = catchErrors(async (req, res) => {
 
 const postAddComment = catchErrors(async (req, res) => {
   const postId = req.params.id;
-  console.log(postId);
+
   author = req.verifiedUserClaims.sub;
-  console.log(author);
+
   const text = req.body.text;
-  console.log(text);
+
   const newComment = {
     text: text,
     author: author,
@@ -58,9 +56,8 @@ const postAddComment = catchErrors(async (req, res) => {
 });
 const postAddLike = catchErrors(async (req, res) => {
   const postId = req.body.id;
-  console.log(postId);
+
   author = req.verifiedUserClaims.sub;
-  console.log(author);
 
   const result = await PostServices.addLike({ postId, author });
   return res.json({
@@ -73,5 +70,4 @@ module.exports = {
   postAddComment,
   getShowPostDetail,
   postAddLike,
-  
 };

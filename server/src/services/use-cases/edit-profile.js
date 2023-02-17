@@ -13,7 +13,6 @@ async function editProfile({
   userName,
   birthDate,
 }) {
-  console.log("test5", profilePicture);
   const user = await User.findByIdAndUpdate(
     userId,
     {

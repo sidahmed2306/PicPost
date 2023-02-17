@@ -10,6 +10,7 @@ const { addComment } = require("./use-cases/add-comment");
 const { showPostDetail } = require("./use-cases/show-PostDetail");
 const { addLike } = require("./use-cases/add-like");
 const { refreshToken } = require("./use-cases/refresh-token");
+const { addfollowers } = require("./use-cases/add-follow");
 
 const UserServices = {
   refreshToken,
@@ -20,6 +21,7 @@ const UserServices = {
   showPosts,
   showUsers,
   showProfileDetail,
+  addfollowers,
 };
 
 const PostServices = {

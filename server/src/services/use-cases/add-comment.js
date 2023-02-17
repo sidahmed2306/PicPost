@@ -3,7 +3,7 @@ const { Post } = require("../../models");
 async function addComment({ postId, text, author }) {
   try {
     const post = await Post.findById(postId);
-    console.log("post", post);
+
     if (!post) {
       throw new Error("Post not found");
     }

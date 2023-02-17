@@ -33,7 +33,7 @@ async function userRegister({
     bio,
     profilPicture,
   });
-  console.log(newUser);
+
   return {
     _id: newUser._id,
     firstName: newUser.firstName,

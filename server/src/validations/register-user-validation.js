@@ -7,7 +7,7 @@ const body = Joi.object({
   userName: Joi.string().min(3).required(),
   password: Joi.string().min(8).required(),
   birthDate: Joi.date().required(),
-  tlfNumber: Joi.string().min(8).required(),
+  telNumber: Joi.string().min(8).required(),
   gender: Joi.string().valid("Male", "Female").required(),
 });
 

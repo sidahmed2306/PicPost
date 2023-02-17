@@ -15,6 +15,12 @@ userRouter.post(
 );
 
 userRouter.post(
+  "/add-follwer",
+  makeAuthMiddleware({ tokenType: "access" }),
+  userController.postAddfollowers
+);
+
+userRouter.post(
   "/register",
   validate(UserValidations.registerUserValidation.body),
   userController.postRegister

@@ -1,6 +1,6 @@
 const { User, Post } = require("../../models");
 
-async function showUsers({}) {
+async function showUsers() {
   const user = await User.find({}).sort({ createdAt: -1 });
   //   .populate([
   //     "author",
@@ -10,7 +10,6 @@ async function showUsers({}) {
   //     // "following.author",
   //   ]);
 
-  console.log(user);
   return {
     user,
   };

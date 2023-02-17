@@ -78,6 +78,19 @@ const getShowProfileDetail = catchErrors(async (req, res) => {
   });
 });
 
+const postAddfollowers = catchErrors(async (req, res) => {
+  const idUser = req.verifiedUserClaims.sub;
+  const idfollwer = req.body.id;
+  console.log(idUser);
+  console.log(idfollwer);
+
+  const result = await UserServices.addfollowers({ idUser, idfollwer });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 const getShowPost = catchErrors(async (req, res) => {
   const result = await UserServices.showPosts();
   return res.json({
@@ -96,8 +109,6 @@ const getShowUser = catchErrors(async (req, res) => {
 
 const putEditProfile = catchErrors(async (req, res) => {
   const userId = req.verifiedUserClaims.sub;
-
-  console.log(req.body, req.file);
 
   const updateInfo = {
     userId,
@@ -132,4 +143,5 @@ module.exports = {
   getShowUser,
   getShowProfileDetail,
   postRefreshToken,
+  postAddfollowers,
 };
