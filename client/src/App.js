@@ -79,7 +79,7 @@ function App() {
             path="/profile"
             element={
               <Protected token={token} setToken={setToken}>
-                <ProfilePage token={token} />
+                <ProfilePage setToken={setToken} token={token} />
               </Protected>
             }
           />

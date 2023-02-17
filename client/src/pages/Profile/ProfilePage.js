@@ -4,13 +4,15 @@ import miniLogo from "../../assets/img/miniLogo.svg";
 import addNewPost from "../../assets/img/addNewPost.svg";
 import pen from "../../assets/img/pen.svg";
 import showMore from "../../assets/img/showMore.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import editProfile from "../../assets/img/editProfile.svg";
 import Feeds from "../../assets/img/Feeds.svg";
+import logoutimg from "../../assets/img/log-out.svg";
 import "./ProfilePage.css";
 
-export default function ProfilePage({ token }) {
+export default function ProfilePage({ token, setToken }) {
   const [postImg, setPostImg] = useState();
+  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState("");
   const [profileInfo, setProfileInfo] = useState();
@@ -32,6 +34,20 @@ export default function ProfilePage({ token }) {
         }
       });
   }, [token]);
+
+  function logout(event) {
+    event.preventDefault();
+
+    fetch(`http://localhost:9003/api/v1/users/logout`, {
+      method: "POST",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setToken(null);
+        navigate("/log-in"); // LogoutPage will delete Token and navigate to /login
+      });
+  }
   console.log(profileInfo);
   return (
     <div className="profile">
@@ -51,6 +67,9 @@ export default function ProfilePage({ token }) {
           </Link>
           <Link>
             <img src={showMore}></img>
+          </Link>
+          <Link>
+            <img onClick={logout} src={logoutimg}></img>
           </Link>
         </div>
       </div>

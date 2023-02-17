@@ -32,6 +32,11 @@ userRouter.post(
   userController.postLogin
 );
 
+userRouter.post("/logout", (req, res) => {
+  req.session.refreshToken = null; // delete refresh token
+  res.json({ status: "ok", result: {} });
+});
+
 userRouter.get(
   "/profile",
   makeAuthMiddleware({ tokenType: "access" }),
