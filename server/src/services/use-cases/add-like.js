@@ -1,10 +1,9 @@
 const { Post } = require("../../models");
 
 async function addLike({ postId, author }) {
-  console.log("idBackend", postId);
   try {
     const post = await Post.findById(postId);
-    console.log("post", post);
+
     if (!post) {
       throw new Error("Post not found");
     }

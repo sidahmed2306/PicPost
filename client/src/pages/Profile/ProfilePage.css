@@ -1,104 +1,99 @@
 .profile {
-    margin-top: 2vh;
+  margin-top: 2vh;
 }
 
 .div-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto, 150px);
-    place-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 150px);
+  place-items: center;
 }
 
 .grid-item {
-    object-fit: contain;
-    height: 100px;
-    width: 100%;
+  object-fit: contain;
+  height: 100px;
+  width: 100%;
 }
 
 .profile-picture {
-    border-radius: 50%;
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
+  border-radius: 50%;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
 }
 
 .profile-picture-w-edit-profile {
-    position: relative;
+  position: relative;
 }
 
 .edit-profile {
-    position: absolute;
-    bottom: 0.8rem;
-    left: 245px;
+  position: absolute;
+  bottom: 0.8rem;
+  left: 245px;
 }
 
 .border {
-    border-left: 1px solid #EEEEEE;
-    border-right: 1px solid #EEEEEE;
-    padding: 0 20px;
-    margin: 20px;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  padding: 0 20px;
+  margin: 20px;
 }
 
 div.icons {
-    display: flex;
-    justify-content: space-between;
-    width: 8rem;
-    margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 8rem;
+  margin-left: 2rem;
 }
 
 .counts {
-    margin: 2vh auto;
-    border-bottom: 1px solid #EEEEEE;
-
+  margin: 2vh auto;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .counts div {
-    width: 100px
+  width: 100px;
 }
 
 .counts p {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
-
 .profile-bio h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .profile-bio p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 a.bio {
-    display: block;
+  display: block;
 }
 
 a.link {
-    margin-top: 0.5rem;
-    text-decoration: none;
-    display: inline-block;
-    color: linear-gradient(180deg, #246BFD 0%, #6F9EFF 100%);
-    font-family: Urbanist-Bold;
-
+  margin-top: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  color: linear-gradient(180deg, #246bfd 0%, #6f9eff 100%);
+  font-family: Urbanist-Bold;
 }
 
 .Feeds-container {
-    display: flex;
-    width: fit-content;
-    padding: 0 2rem 0.75rem 2rem;
-    border-bottom: 4px solid #FF4D67;
-    margin-bottom: 0.75rem;
+  display: flex;
+  width: fit-content;
+  padding: 0 2rem 0.75rem 2rem;
+  border-bottom: 4px solid #ff4d67;
+  margin-bottom: 0.75rem;
 }
 
 .Feeds {
-    color: #FF4D67;
-    margin-left: 12px;
-
+  color: #ff4d67;
+  margin-left: 12px;
 }

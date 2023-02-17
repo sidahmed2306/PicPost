@@ -51,6 +51,7 @@ export default function EditProfile({ token }) {
     event.preventDefault();
 
     const formData = makeFormData({
+      userName,
       firstName,
       lastName,
       email,

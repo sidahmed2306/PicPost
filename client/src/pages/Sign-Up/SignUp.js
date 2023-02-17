@@ -27,7 +27,7 @@ export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
-
+  console.log(telNumber);
   function register(event) {
     event.preventDefault(); //page reload verhindern!
     fetch(`${apiBaseUrl}/register`, {

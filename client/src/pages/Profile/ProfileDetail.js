@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-
+import commentIcon from "../../assets/img/commentIcon.svg";
+import like from "../../assets/img/likeHeart.svg";
+import "./profileDetail.css";
 const ProfileDitail = ({ token }) => {
   const [postImg, setPostImg] = useState();
   const [postCount, setPostCount] = useState();
   const [followersCount, setFollowersCount] = useState();
   const [followingCount, setfollowingCount] = useState();
-
+  const [profilId, setProfilId] = useState();
   const [errorMessage, setErrorMessage] = useState("");
   const [profileInfo, setProfileInfo] = useState();
 
   const { id } = useParams();
-  useEffect(() => {
+  const fetchPost = () => {
     fetch(`http://localhost:9003/api/v1/users/profile-detail/${id}`, {
       method: "GET",
       headers: {
@@ -24,6 +26,7 @@ const ProfileDitail = ({ token }) => {
       .then(({ status, result, error }) => {
         if (status === "ok") {
           setProfileInfo(result.user);
+          setProfilId(result.user._id);
           setPostCount(result.postCount);
           setPostImg(result.post);
           setFollowersCount(result.followersCount);
@@ -32,7 +35,34 @@ const ProfileDitail = ({ token }) => {
           setErrorMessage(error.message);
         }
       });
-  }, []);
+  };
+  useEffect(fetchPost, []);
+  const follow = () => {
+    fetch(`http://localhost:9003/api/v1/users/add-follwer`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        id: profilId,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to follow");
+        }
+
+        return response.json();
+      })
+      .then((newLike) => {
+        fetchPost();
+      })
+      .catch((err) => {
+        console.error(`Error follow: ${err.message}`);
+        throw err;
+      });
+  };
   console.log(profileInfo);
   console.log(postImg);
   return (
@@ -72,16 +102,29 @@ const ProfileDitail = ({ token }) => {
             <p>Following</p>
           </div>
         </div>
+        <div>
+          <button onClick={follow}>follow</button>
+        </div>
       </article>
 
       <section className="grid-container">
         {postImg?.map((elt, index) => (
-          <img
-            key={index}
-            className="grid-item"
-            src={`${elt.img.url}`}
-            alt=""
-          />
+          <div className="gallery-item">
+            <img
+              key={index}
+              className="grid-item"
+              src={`${elt.img.url}`}
+              alt=""
+            />
+            <div className="overlay">&nbsp;</div>
+            <div className="trip-info">
+              <img src={commentIcon} alt="" />
+              <p className="trip-name"> {elt.comments.length}</p>
+
+              <img src={like} alt="" />
+              <p className="trip-text">{elt.likes.length}</p>
+            </div>
+          </div>
         ))}
       </section>
 

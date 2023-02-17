@@ -32,7 +32,7 @@ export default function ProfilePage({ token }) {
         }
       });
   }, [token]);
-
+  console.log(profileInfo);
   return (
     <div className="profile">
       <div className="div-flex">
