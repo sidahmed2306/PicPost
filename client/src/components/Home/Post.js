@@ -6,7 +6,7 @@ export default function Post(props) {
   return (
     <div className="post-article">
       <ProfilePost
-        username={props.username}
+        userName={props.username}
         profilePicture={props.profilePicture}
         job={props.job}
       />
