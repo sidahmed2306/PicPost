@@ -4,6 +4,7 @@ import backArrow from "../../assets/img/backArrow.svg";
 import paperPlane from "../../assets/img/paperPlane.svg";
 import UserItem from "../../components/Search/UserItem";
 import TimeAgo from "../../components/TimeAgo";
+import CommentItem from "../../components/comments/CommentItem";
 
 // http://localhost:9003/api/v1/users/profile
 export default function CommentSection({ token }) {
@@ -89,6 +90,8 @@ export default function CommentSection({ token }) {
       <div className="post-img-container">
         <img className="post-img" src={postInfo?.post.img.url}></img>
       </div>
+      {postInfo?.post.comments.map(comment => <CommentItem userName={comment.author.userName} job={comment.author.job} profilePicture={comment.author.profilePicture.url} comment={comment.text} />)}
+
 
     </section>
   );
