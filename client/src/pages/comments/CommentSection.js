@@ -81,10 +81,13 @@ export default function CommentSection({ token }) {
           onChange={(e) => setText(e.target.value)}
         />
       </div>
-      <UserItem profilePicture={postInfo?.post?.author?.profilePicture} userName={postInfo?.post?.author?.userName} job={postInfo?.post?.author.job} />
+      <UserItem profilePicture={postInfo?.post.author.profilePicture.url} userName={postInfo?.post?.author?.userName} job={postInfo?.post?.author.job} />
       <div>
         <p>{postInfo?.post?.caption}</p>
-        <TimeAgo timestamp={postInfo?.post?.createdAt} />
+        <TimeAgo timestamp={postInfo?.post.createdAt} />
+      </div>
+      <div className="post-img-container">
+        <img className="post-img" src={postInfo?.post.img.url}></img>
       </div>
 
     </section>

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Post from "../../components/Home/Post";
 import Navbar from "../../components/Navbar/Navbar";
 import showMore from "../../assets/img/showMore.svg";
-import commentIcon from "../../assets/img/commentIcon.svg";
-import like from "../../assets/img/likeHeart.svg";
 import "./home.css";
-import ProfilePost from "../../components/Home/ProfilePost";
-import LikeAndComment from "../../components/Home/LikeAndComment";
+import miniLogo from "../../assets/img/miniLogo.svg";
+import addNewPost from "../../assets/img/addNewPost.svg";
 
 export default function HomePage({ token }) {
   const [id, setId] = useState("");
@@ -68,9 +66,26 @@ export default function HomePage({ token }) {
   console.log("result", result);
   return (
     <>
-      <section>
-        {result.map((elt) => (
+      <section className="home-page">
+        <div className="div-flex2">
+          <Link to="/home">
+            <img src={miniLogo}></img>
+          </Link>
+          <h2 className="profile-username">
+            PicPost
+          </h2>
+          <div className="icons2">
+            <Link to="/upload">
+              <img src={addNewPost}></img>
+            </Link>
+            <Link>
+              <img src={showMore}></img>
+            </Link>
+          </div>
+        </div>
+        {result.map((elt, i) => (
           <Post
+            key={i}
             addlike={() => {
               addLike(elt._id);
             }}

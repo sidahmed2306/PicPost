@@ -69,7 +69,7 @@ const ProfileDetail = ({ token }) => {
     <>
       <article className="profile-bio">
         <h4>{profileInfo ? profileInfo.userName : "Loading..."}</h4>
-        <div className="profile-picture-w-edit-profile">
+        <div className="profile-picture-container">
           <img
             src={profileInfo ? profileInfo.profilePicture.url : "Loading..."}
             alt="profil-picture"

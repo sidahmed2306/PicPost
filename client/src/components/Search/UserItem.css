@@ -5,6 +5,7 @@
   margin-bottom: 20px;
   text-decoration: none;
 }
+
 .users-info {
   display: flex;
   flex-direction: column;
@@ -12,26 +13,29 @@
   align-items: flex-start;
 
   gap: 4px;
-  
+
 }
+
 .users-info h4 {
   font-family: "Urbanist-Bold";
   font-style: normal;
   font-weight: 900;
-  font-size: 2.3rem;
-  color: #ff4d67;
+  font-size: 2rem;
+  color: #000000;
 }
+
 .users-info p {
   font-family: "Urbanist-Med";
   font-style: normal;
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 1rem;
   color: #616161;
 }
+
 .user-item img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   box-shadow: 5px 5px 12px #6a6a6a, -5px -5px 12px #FFFFFF;
-    border: 1px solid #ff4d67;
+  border: 1px solid #ff4d67;
 }
