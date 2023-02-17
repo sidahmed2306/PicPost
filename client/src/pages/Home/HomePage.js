@@ -66,7 +66,7 @@ export default function HomePage({ token }) {
         throw err;
       });
   };
-  console.log("newlike", newLike);
+  console.log("newlike", myUserId);
   console.log("result", result);
   return (
     <>
@@ -75,9 +75,7 @@ export default function HomePage({ token }) {
           <Link to="/home">
             <img src={miniLogo}></img>
           </Link>
-          <h2 className="profile-username">
-            PicPost
-          </h2>
+          <h2 className="profile-username">PicPost</h2>
           <div className="icons2">
             <Link to="/upload">
               <img src={addNewPost}></img>
@@ -93,7 +91,7 @@ export default function HomePage({ token }) {
             addlike={() => {
               addLike(elt._id);
             }}
-            isLikedByMe={elt.likes.includes(myUserId)}
+            isLikedByMe={elt.likes.map((elt) => elt._id).includes(myUserId)}
             profilePicture={elt.author.profilePicture.url}
             username={elt.author.userName}
             job={elt.author.job}
