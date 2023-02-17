@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import commentIcon from "../../assets/img/commentIcon.svg";
 import like from "../../assets/img/likeHeart.svg";
 import "./profileDetail.css";
-const ProfileDitail = ({ token }) => {
+const ProfileDetail = ({ token }) => {
   const [postImg, setPostImg] = useState();
   const [postCount, setPostCount] = useState();
   const [followersCount, setFollowersCount] = useState();
@@ -133,4 +133,4 @@ const ProfileDitail = ({ token }) => {
   );
 };
 
-export default ProfileDitail;
+export default ProfileDetail;

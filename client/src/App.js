@@ -10,7 +10,7 @@ import CommentSection from "./pages/comments/CommentSection";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import EditProfile from "./pages/Profile/EditProfile";
 import Search from "./pages/Search/Search";
-import ProfileDitail from "./pages/Profile/ProfileDetail";
+import ProfileDetail from "./pages/Profile/ProfileDetail";
 import Protected from "./components/Protected";
 //hallo
 function App() {
@@ -104,7 +104,7 @@ function App() {
             path="/profil-detail/:id"
             element={
               <Protected token={token} setToken={setToken}>
-                <ProfileDitail token={token} />
+                <ProfileDetail token={token} />
               </Protected>
             }
           />

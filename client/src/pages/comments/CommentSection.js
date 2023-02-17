@@ -6,7 +6,7 @@ import Post from "../../components/Home/Post";
 // http://localhost:9003/api/v1/users/profile
 export default function CommentSection({ token }) {
   console.log(token);
-  const [postInfo, setPstInfo] = useState();
+  const [postInfo, setPostInfo] = useState();
   const [authorInfo, setAuthorInfo] = useState();
   const [newComment, setNewComment] = useState("");
   const [text, setText] = useState("");
@@ -24,7 +24,7 @@ export default function CommentSection({ token }) {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
-          setPstInfo(result);
+          setPostInfo(result);
           setAuthorInfo(result.author);
         } else {
           setErrorMessage(error.message);
