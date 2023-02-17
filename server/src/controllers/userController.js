@@ -71,7 +71,8 @@ const getShowProfile = catchErrors(async (req, res) => {
 
 const getShowProfileDetail = catchErrors(async (req, res) => {
   const userId = req.params.id;
-  const result = await UserServices.showProfileDetail({ userId });
+  profileId = req.verifiedUserClaims.sub;
+  const result = await UserServices.showProfileDetail({ userId, profileId });
   return res.json({
     status: "ok",
     result,
@@ -92,7 +93,8 @@ const postAddfollowers = catchErrors(async (req, res) => {
 });
 
 const getShowPost = catchErrors(async (req, res) => {
-  const result = await UserServices.showPosts();
+  const idUser = req.verifiedUserClaims.sub;
+  const result = await UserServices.showPosts( idUser );
   return res.json({
     status: "ok",
     result,
@@ -100,7 +102,8 @@ const getShowPost = catchErrors(async (req, res) => {
 });
 
 const getShowUser = catchErrors(async (req, res) => {
-  const result = await UserServices.showUsers();
+  const idUser = req.verifiedUserClaims.sub;
+  const result = await UserServices.showUsers({ idUser });
   return res.json({
     status: "ok",
     result,

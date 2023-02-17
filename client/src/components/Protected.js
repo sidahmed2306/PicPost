@@ -18,6 +18,7 @@ const Protected = ({ token, setToken, children }) => {
       .then(({ status, result }) => {
         setLoading(false);
         if (status === "ok") {
+          console.log("satatus refreshtoken", status);
           setToken(result.accessToken);
         }
       });

@@ -12,6 +12,8 @@ const ProfileDitail = ({ token }) => {
   const [profilId, setProfilId] = useState();
   const [errorMessage, setErrorMessage] = useState("");
   const [profileInfo, setProfileInfo] = useState();
+  const [state, setState] = useState();
+  const [followState, setFollowState] = useState(false);
 
   const { id } = useParams();
   const fetchPost = () => {
@@ -25,6 +27,7 @@ const ProfileDitail = ({ token }) => {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
+          setFollowState(result.state);
           setProfileInfo(result.user);
           setProfilId(result.user._id);
           setPostCount(result.postCount);
@@ -37,6 +40,7 @@ const ProfileDitail = ({ token }) => {
       });
   };
   useEffect(fetchPost, []);
+
   const follow = () => {
     fetch(`http://localhost:9003/api/v1/users/add-follwer`, {
       method: "POST",
@@ -64,6 +68,7 @@ const ProfileDitail = ({ token }) => {
       });
   };
   console.log(profileInfo);
+  console.log(followState);
   console.log(postImg);
   return (
     <>
@@ -103,7 +108,11 @@ const ProfileDitail = ({ token }) => {
           </div>
         </div>
         <div>
-          <button onClick={follow}>follow</button>
+          {followState ? (
+            <button onClick={follow}>unfollow</button>
+          ) : (
+            <button onClick={follow}>follow</button>
+          )}
         </div>
       </article>
 

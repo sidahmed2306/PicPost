@@ -1,8 +1,8 @@
 const { User, Post } = require("../../models");
 
 async function showProfile({ userId }) {
-  const user = await User.findById(userId);
-
+  const user = await User.findById(userId).populate(["following", "followers"]);
+  console.log(user);
   const post = await Post.find({ author: userId }).sort({ createdAt: -1 });
   // console.log(post);
   // const posts = await Post.find({}).sort({ date: -1 }).populate([
@@ -41,6 +41,7 @@ async function showProfile({ userId }) {
     followingCount,
     postImage,
     telNumber,
+    user,
   };
 }
 

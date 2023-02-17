@@ -27,8 +27,14 @@ const userSchema = new mongoose.Schema({
       default: avatarPlaceHolder,
     },
   },
-  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  followers: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    { state: false },
+  ],
+  following: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    { state: false },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);

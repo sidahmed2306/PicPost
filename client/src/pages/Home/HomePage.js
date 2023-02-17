@@ -13,8 +13,9 @@ export default function HomePage({ token }) {
   const [id, setId] = useState("");
   const [result, setResult] = useState([]);
   const [newLike, setNewLike] = useState([]);
+  const [likeState, setLikeState] = useState(false);
 
-  const [users, setUsers] = useState([]);
+  const [myUserId, setMyUserId] = useState("");
 
   const [errorMessage, setErrorMessage] = useState("");
   const fetchPost = () => {
@@ -29,6 +30,9 @@ export default function HomePage({ token }) {
       .then(({ status, result, error }) => {
         if (status === "ok") {
           setResult(result.posts);
+          setMyUserId(result.myUserId);
+
+          setLikeState(result.posts.state);
         } else {
           setErrorMessage(error.message);
         }
@@ -64,7 +68,7 @@ export default function HomePage({ token }) {
         throw err;
       });
   };
-  console.log(newLike);
+  console.log("newlike", newLike);
   console.log("result", result);
   return (
     <>
@@ -74,6 +78,7 @@ export default function HomePage({ token }) {
             addlike={() => {
               addLike(elt._id);
             }}
+            isLikedByMe={elt.likes.includes(myUserId)}
             profilePicture={elt.author.profilePicture.url}
             username={elt.author.userName}
             job={elt.author.job}

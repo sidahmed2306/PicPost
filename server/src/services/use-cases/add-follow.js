@@ -15,7 +15,6 @@ async function addfollowers({ idUser, idfollwer }) {
     if (index === -1) {
       userfollowed.followers.push(idUser);
       await userfollowed.save();
-
       user.following.push(idfollwer);
       await user.save();
 
