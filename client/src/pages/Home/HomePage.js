@@ -65,7 +65,7 @@ export default function HomePage({ token }) {
   console.log(newLike);
   console.log("result", result);
   return (
-    <>
+    <div>
       <section className="home-page">
         <div className="div-flex2">
           <Link to="/home">
@@ -100,6 +100,6 @@ export default function HomePage({ token }) {
         ))}
       </section>
       <Navbar page={"home"} />
-    </>
+    </div>
   );
 }
