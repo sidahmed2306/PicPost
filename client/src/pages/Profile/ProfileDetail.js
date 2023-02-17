@@ -103,7 +103,7 @@ const ProfileDetail = ({ token }) => {
           </div>
         </div>
         <div>
-          <button onClick={follow}>follow</button>
+          <button className="follow" onClick={follow}>Follow</button>
         </div>
       </article>
 

@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* user-select: none; */
+  box-shadow: none !important;
 }
 
 body {
@@ -11,6 +13,7 @@ body {
   /* background-color: #828282; */
   /* background-color: rgb(94, 94, 94); */
 }
+
 h1,
 h2,
 h3,
@@ -152,4 +155,18 @@ a {
   padding: 0rem 3px 3rem 3px;
 }
 
-/* Profile-Page */
+.follow {
+  padding: 10px 4rem 10px 4rem;
+  font-size: 18px;
+  font-family: Urbanist-SBold;
+  color: white;
+  background-color: #FF4D67;
+  border: none;
+  border-radius: 100px;
+  width: fill;
+  cursor: pointer;
+}
+
+.follow:active {
+  background-color: #8e2333
+}

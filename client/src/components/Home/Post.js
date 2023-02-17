@@ -10,7 +10,9 @@ export default function Post(props) {
         profilePicture={props.profilePicture}
         job={props.job}
       />
-      <img className="post-img" src={props.postImage}></img>
+      <div className="post-img-container">
+        <img className="post-img" src={props.postImage}></img>
+      </div>
       <LikeAndComment
         addlike={props.addlike}
         id={props.id}
