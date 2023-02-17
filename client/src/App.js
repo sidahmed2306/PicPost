@@ -12,7 +12,7 @@ import EditProfile from "./pages/Profile/EditProfile";
 import Search from "./pages/Search/Search";
 import ProfileDitail from "./pages/Profile/ProfileDetail";
 import Protected from "./components/Protected";
-
+//hallo
 function App() {
   const [token, setToken] = useState("");
   useEffect(() => {
