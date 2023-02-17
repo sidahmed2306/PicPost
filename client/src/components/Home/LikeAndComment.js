@@ -19,6 +19,7 @@ export default function LikeAndComment(props) {
       <Link to={`/add-comment/${props.id}`} className="comments">
         <img src={commentIcon}></img>
         <h5 className="comments-p">{props.comments?.length}</h5>
+        <h5 className="comments-p">{props.comments?.length}</h5>
       </Link>
     </div>
   );

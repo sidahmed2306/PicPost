@@ -29,7 +29,7 @@ async function addfollowers({ idUser, idfollwer }) {
       return { userfollowed, user };
     }
   } catch (err) {
-    throw new Error(`Could not add comment: ${err.message}`);
+    throw new Error(`Could not add follow: ${err.message}`);
   }
 }
 

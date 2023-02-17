@@ -98,7 +98,9 @@ export default function ProfilePage({ token }) {
       </div>
       <section className="grid-container">
         {postImg?.map((elt, index) => (
-          <img key={index} className="grid-item" src={`${elt.url}`} alt="" />
+          <div className="grid-item-container">
+            <img key={index} className="grid-item" src={`${elt.url}`} alt="" />
+          </div>
         ))}
       </section>
       <Navbar page={"profile"} />

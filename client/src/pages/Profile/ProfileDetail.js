@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import commentIcon from "../../assets/img/commentIcon.svg";
 import like from "../../assets/img/likeHeart.svg";
 import "./profileDetail.css";
-const ProfileDitail = ({ token }) => {
+const ProfileDetail = ({ token }) => {
   const [postImg, setPostImg] = useState();
   const [postCount, setPostCount] = useState();
   const [followersCount, setFollowersCount] = useState();
@@ -74,7 +74,7 @@ const ProfileDitail = ({ token }) => {
     <>
       <article className="profile-bio">
         <h4>{profileInfo ? profileInfo.userName : "Loading..."}</h4>
-        <div className="profile-picture-w-edit-profile">
+        <div className="profile-picture-container">
           <img
             src={profileInfo ? profileInfo.profilePicture.url : "Loading..."}
             alt="profil-picture"
@@ -142,4 +142,4 @@ const ProfileDitail = ({ token }) => {
   );
 };
 
-export default ProfileDitail;
+export default ProfileDetail;

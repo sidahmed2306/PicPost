@@ -2,11 +2,13 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import backArrow from "../../assets/img/backArrow.svg";
 import paperPlane from "../../assets/img/paperPlane.svg";
-import Post from "../../components/Home/Post";
+import UserItem from "../../components/Search/UserItem";
+import TimeAgo from "../../components/TimeAgo";
+
 // http://localhost:9003/api/v1/users/profile
 export default function CommentSection({ token }) {
   console.log(token);
-  const [postInfo, setPstInfo] = useState();
+  const [postInfo, setPostInfo] = useState();
   const [authorInfo, setAuthorInfo] = useState();
   const [newComment, setNewComment] = useState("");
   const [text, setText] = useState("");
@@ -24,7 +26,7 @@ export default function CommentSection({ token }) {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
-          setPstInfo(result);
+          setPostInfo(result);
           setAuthorInfo(result.author);
         } else {
           setErrorMessage(error.message);
@@ -60,7 +62,7 @@ export default function CommentSection({ token }) {
       });
   };
   //   useEffect(addComment, [token]);
-  console.log(postInfo);
+  console.log(postInfo?.post);
   console.log("newcomment", newComment);
   console.log("text", text);
   return (
@@ -79,7 +81,15 @@ export default function CommentSection({ token }) {
           onChange={(e) => setText(e.target.value)}
         />
       </div>
-      {/* <Post /> */}
+      <UserItem profilePicture={postInfo?.post.author.profilePicture.url} userName={postInfo?.post?.author?.userName} job={postInfo?.post?.author.job} />
+      <div>
+        <p>{postInfo?.post?.caption}</p>
+        <TimeAgo timestamp={postInfo?.post.createdAt} />
+      </div>
+      <div className="post-img-container">
+        <img className="post-img" src={postInfo?.post.img.url}></img>
+      </div>
+
     </section>
   );
 }
