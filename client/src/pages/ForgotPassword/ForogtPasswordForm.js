@@ -10,7 +10,7 @@ const ForogtPasswordForm = () => {
   function forgotPassword(event) {
     event.preventDefault();
 
-    fetch(`http://localhost:9003/api/v1/users/forgot-password`, {
+    fetch(`${apiBaseUrl}/users/forgot-password`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

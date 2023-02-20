@@ -9,7 +9,7 @@ async function resetPassword({ userId, password }) {
 
   const passwordSalt = createRandomSalt();
   const passwordHash = createHash(`${password}${passwordSalt}`);
-  user.passwordHash = passwordHash;
+  user.passwordhash = passwordHash;
   user.passwordSalt = passwordSalt;
 
   await user.save();

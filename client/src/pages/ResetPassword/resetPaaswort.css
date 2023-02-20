@@ -1,0 +1,11 @@
+.reset-password {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reset-password-section .reset-password .reset-password-inpt {
+  height: 25px;
+  border-radius: 20px;
+  border: none;
+}

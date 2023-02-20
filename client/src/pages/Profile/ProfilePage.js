@@ -7,6 +7,7 @@ import showMore from "../../assets/img/showMore.svg";
 import { Link, useNavigate } from "react-router-dom";
 import editProfile from "../../assets/img/editProfile.svg";
 import Feeds from "../../assets/img/Feeds.svg";
+import { apiBaseUrl } from "../../api";
 import logoutimg from "../../assets/img/log-out.svg";
 import "./ProfilePage.css";
 
@@ -17,7 +18,7 @@ export default function ProfilePage({ token, setToken }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [profileInfo, setProfileInfo] = useState();
   useEffect(() => {
-    fetch(`http://localhost:9003/api/v1/users/profile`, {
+    fetch(`${apiBaseUrl}/users/profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +39,7 @@ export default function ProfilePage({ token, setToken }) {
   function logout(event) {
     event.preventDefault();
 
-    fetch(`http://localhost:9003/api/v1/users/logout`, {
+    fetch(`${apiBaseUrl}/users/logout`, {
       method: "POST",
       credentials: "include",
     })
@@ -84,9 +85,9 @@ export default function ProfilePage({ token, setToken }) {
             className="profile-picture"
             style={{ width: "120px" }}
           ></img>
-          <Link to="/edit-profile">
+          {/* <Link to="/edit-profile">
             <img className="edit-profile" src={editProfile}></img>
-          </Link>
+          </Link> */}
         </div>
         <h3>
           {profileInfo

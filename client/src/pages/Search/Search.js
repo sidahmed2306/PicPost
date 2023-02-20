@@ -3,14 +3,14 @@ import Navbar from "../../components/Navbar/Navbar";
 import Searchbar from "../../components/Search/Searchbar";
 import UserItem from "../../components/Search/UserItem";
 import "./search.css";
-
+import { apiBaseUrl } from "../../api";
 export default function Search({ token }) {
   const [allUser, setAllUser] = useState([]);
   const [myUserId, setMyUserId] = useState("");
   const [filteredUsers, setFilteredUsers] = useState(allUser);
   const [searchTerm, setSearchTerm] = useState("");
   const getAllUser = () => {
-    fetch("http://localhost:9003/api/v1/users/all-users", {
+    fetch(`${apiBaseUrl}/users/all-users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export default function Search({ token }) {
   useEffect(getAllUser, [token]);
 
   const follow = (profilId) => {
-    fetch(`http://localhost:9003/api/v1/users/add-follwer`, {
+    fetch(`${apiBaseUrl}/users/add-follwer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

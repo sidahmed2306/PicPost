@@ -76,6 +76,9 @@ a {
     transform: rotate(360deg);
   }
 }
+.register {
+  margin-bottom: 100px;
+}
 
 .register-form {
   margin: 0 auto;

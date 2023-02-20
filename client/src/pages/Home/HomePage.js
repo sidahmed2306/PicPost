@@ -6,7 +6,7 @@ import showMore from "../../assets/img/showMore.svg";
 import "./home.css";
 import miniLogo from "../../assets/img/miniLogo.svg";
 import addNewPost from "../../assets/img/addNewPost.svg";
-
+import { apiBaseUrl } from "../../api";
 export default function HomePage({ token }) {
   const [id, setId] = useState("");
   const [result, setResult] = useState([]);
@@ -16,7 +16,7 @@ export default function HomePage({ token }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const fetchPost = () => {
-    fetch(`http://localhost:9003/api/v1/users/home`, {
+    fetch(`${apiBaseUrl}/users/home`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export default function HomePage({ token }) {
   const addLike = (postId) => {
     console.log("postId", postId);
     setId(postId);
-    fetch(`http://localhost:9003/api/v1/post/add-like`, {
+    fetch(`${apiBaseUrl}/post/add-like`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
