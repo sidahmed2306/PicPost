@@ -1,5 +1,5 @@
 body {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
 }
 
 .searchbar-wrapper {
@@ -79,6 +79,10 @@ button {
   padding-right: 1em;
   width: 290px;
   margin-right: 10px;
+  color: white;
+  font-family: "Urbanist";
+  font-size: 18px;
+  font-weight: 600;
 }
 .search-box-btn:active {
   transform: scale(0.75);
