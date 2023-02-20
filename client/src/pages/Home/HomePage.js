@@ -100,7 +100,7 @@ export default function HomePage({ token }) {
             postImage={elt.img?.url}
             likes={elt.likes}
             id={elt._id}
-            profileId={elt.author._id}
+            profileId={elt.author?._id}
             comments={elt.comments}
           />
         ))}

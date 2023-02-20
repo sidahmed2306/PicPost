@@ -1,62 +1,60 @@
+.caption {
+  width: 92%;
+  border-radius: 25px;
+  padding: 15px 0;
+  border: 1px solid #ff4d67;
+  resize: none;
+  background-color: #bdbdbd;
+  font-family: Urbanist-Reg;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 20px 20px;
+  box-shadow: 5px 5px 12px #919191, -5px -5px 12px #ffffff;
 
-.caption{
-    width: 92%;
-    border-radius: 25px;
-    padding: 15px 0;
-    border: 1px solid #ff4d67;
-    resize: none;
-    background-color: #BDBDBD;
-    font-family: Urbanist-Reg;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin: 20px 20px;
-    box-shadow: 5px 5px 12px #919191, -5px -5px 12px #FFFFFF;
-
-    border-radius: 25px;
-background: linear-gradient(145deg, #f0f0f0, #cacaca);
-box-shadow:  11px 11px 26px #afafaf,
-            -11px -11px 26px #ffffff;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 11px 11px 26px #afafaf, -11px -11px 26px #ffffff;
 }
-.caption:focus{
-    border-radius: 25px;
-    background: #ff4d67; 
-    box-shadow: inset 30px 30px 60px #bcbcbc, inset -30px -30px 60px #ffffff;
-    color: #fff;
+.caption:focus {
+  border-radius: 25px;
+  background: #ff4d67;
+  box-shadow: inset 30px 30px 60px #bcbcbc, inset -30px -30px 60px #ffffff;
+  color: #fff;
 }
-.uploadButton{
-    background: #FF4D67;
-    padding: 10px 50.5px 10px 50.5px;
-    color: #FAFAFA;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 18px;
-    font-family: Urbanist-Bold;
-    font-weight: 700;
-    line-height: 25.2px;
-    border: none;
-    background: linear-gradient(145 deg, #DDDDDD, #BABABA);
-    box-shadow: 5px 5px 12px #919191, -5px -5px 12px #FFFFFF;
-    margin: 5px 20px;
-    font-size: 2rem;
-    border: 1px solid #CFCFCF;
+.uploadButton {
+  background: #ff4d67;
+  padding: 10px 50.5px 10px 50.5px;
+  color: #fafafa;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: Urbanist;
+  font-weight: 700;
+  line-height: 25.2px;
+  border: none;
+  background: linear-gradient(145 deg, #dddddd, #bababa);
+  box-shadow: 5px 5px 12px #919191, -5px -5px 12px #ffffff;
+  margin: 5px 20px;
+  font-size: 2rem;
+  border: 1px solid #cfcfcf;
 }
-.uploadButton:first-child{
-    background: #8DAFB8;
+.uploadButton:first-child {
+  background: #8dafb8;
 }
-.uploadButton:active{
-    box-shadow: inset 11px 11px 30px #AAAAAA, inset -11px -11px 30px #F4F4F4;
-    border: 1px solid #CFCFCFCF;
+.uploadButton:active {
+  box-shadow: inset 11px 11px 30px #aaaaaa, inset -11px -11px 30px #f4f4f4;
+  border: 1px solid #cfcfcfcf;
 }
-.uploadButton:hover{
-    opacity: 80%;
+.uploadButton:hover {
+  opacity: 80%;
 }
-textarea::placeholder{
-    text-align: center;
-    margin-top: 30px;
-    color: black;
+textarea::placeholder {
+  text-align: center;
+  margin-top: 30px;
+  color: black;
 }
-textarea::placeholder:focus{
-    text-align: center;
-    margin-top: 30px;
-    color: #ffffff;
+textarea::placeholder:focus {
+  text-align: center;
+  margin-top: 30px;
+  color: #ffffff;
 }

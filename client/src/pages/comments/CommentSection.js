@@ -5,6 +5,8 @@ import paperPlane from "../../assets/img/paperPlane.svg";
 import UserItem from "../../components/Search/UserItem";
 import TimeAgo from "../../components/TimeAgo";
 import CommentItem from "../../components/comments/CommentItem";
+import LikeAndComment from "../../components/Home/LikeAndComment";
+import "./commentsection.css";
 
 // http://localhost:9003/api/v1/users/profile
 export default function CommentSection({ token }) {
@@ -16,7 +18,26 @@ export default function CommentSection({ token }) {
   const [errorMessage, setErrorMessage] = useState("");
   const { id } = useParams();
 
-  useEffect(() => {
+  //   useEffect(() => {
+  //     fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then(({ status, result, error }) => {
+  //         if (status === "ok") {
+  //           setPostInfo(result);
+  //           setAuthorInfo(result.author);
+  //         } else {
+  //           setErrorMessage(error.message);
+  //         }
+  //       });
+  //   }, [token]);
+
+  const showComment = () => {
     fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
       method: "GET",
       headers: {
@@ -33,7 +54,8 @@ export default function CommentSection({ token }) {
           setErrorMessage(error.message);
         }
       });
-  }, [token]);
+  };
+  useEffect(showComment, [token]);
   const addComment = () => {
     fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
       method: "POST",
@@ -50,12 +72,14 @@ export default function CommentSection({ token }) {
         if (!response.ok) {
           throw new Error("Failed to add comment");
         }
+
         setNewComment(response);
         return response.json();
       })
       .then((newComment) => {
         console.log("newcomment hallo");
-        return setNewComment(newComment);
+        showComment();
+        setNewComment(newComment);
       })
       .catch((err) => {
         console.error(`Error adding comment: ${err.message}`);
@@ -67,32 +91,63 @@ export default function CommentSection({ token }) {
   console.log("newcomment", newComment);
   console.log("text", text);
   return (
-    <section>
-      <div>
+    <section className="comments-section">
+      <div className="back-arrow">
         <Link to="/home">
           <img src={backArrow} alt="back"></img>
         </Link>
         <h3>Comments</h3>
-        <img onClick={addComment} src={paperPlane}></img>
+      </div>
+      <UserItem
+        profilePicture={postInfo?.post.author.profilePicture.url}
+        userName={postInfo?.post?.author?.userName}
+        job={postInfo?.post?.author.job}
+      />
 
+      <div className="post-img-container">
+        <img className="post-img" src={postInfo?.post.img.url}></img>
+      </div>
+      <div className="likeundcomment-section">
+        <TimeAgo timestamp={postInfo?.post.createdAt} />
+        <LikeAndComment
+          id="likeundcomment-component"
+          likes={postInfo?.post.likes}
+          comments={postInfo?.post.comments}
+        />
+      </div>
+      <div className="caption-section">
+        <p>{postInfo?.post.author.userName}:</p>
+        <p> {postInfo?.post?.caption}</p>
+      </div>
+      <div className="commentSection-old">
+        {postInfo?.post.comments.map((comment) => (
+          <div className="commentText-profile-info">
+            <div div className="comment-profileInfo">
+              <img src={comment.author.profilePicture.url} alt="" />
+              <div className="userName-job">
+                <p>{comment.author.userName}</p>
+                <p>{comment.author.job}</p>
+              </div>
+            </div>
+            <div className="commentText-time">
+              <p>{comment.text}</p>
+              <TimeAgo timestamp={comment.createdAt} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="writecomment-section">
+        <img src={postInfo?.post.author.profilePicture.url} alt="" />
         <input
+          className="comment-input"
           type="text"
           placeholder=" write your Comments"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
+        <img onClick={addComment} src={paperPlane}></img>
       </div>
-      <UserItem profilePicture={postInfo?.post.author.profilePicture.url} userName={postInfo?.post?.author?.userName} job={postInfo?.post?.author.job} />
-      <div>
-        <p>{postInfo?.post?.caption}</p>
-        <TimeAgo timestamp={postInfo?.post.createdAt} />
-      </div>
-      <div className="post-img-container">
-        <img className="post-img" src={postInfo?.post.img.url}></img>
-      </div>
-      {postInfo?.post.comments.map(comment => <CommentItem userName={comment.author.userName} job={comment.author.job} profilePicture={comment.author.profilePicture.url} comment={comment.text} />)}
-
-
     </section>
   );
 }
