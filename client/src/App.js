@@ -9,17 +9,20 @@ import HomePage from "./pages/Home/HomePage";
 import CommentSection from "./pages/comments/CommentSection";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import EditProfile from "./pages/Profile/EditProfile";
+import ForgotPasswordPage from "./pages/ForgotPassword";
+import ResetPasswordPage from "./pages/ResetPassword";
 import Search from "./pages/Search/Search";
 import ProfileDetail from "./pages/Profile/ProfileDetail";
 import Protected from "./components/Protected";
-//hallo
+import VerficationCode from "./pages/verficationCode/verficationCode";
+
 function App() {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (!token) {
       return;
     }
-    // refresh token before it expires
+
     const tokenPayloadBase64Str = token.split(".")[1];
     const tokenPayloadJsonStr = atob(tokenPayloadBase64Str);
     const tokenPayload = JSON.parse(tokenPayloadJsonStr);
@@ -36,7 +39,7 @@ function App() {
 
       fetch(`http://localhost:9003/api/v1/users/refresh-token`, {
         method: "POST",
-        credentials: "include", // here: take refresh token from httpOnly secure cookie and send it
+        credentials: "include",
       })
         .then((res) => res.json())
         .then(({ result }) => {
@@ -55,6 +58,12 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LogIn setToken={setToken} />} />
           <Route path="/login" element={<LogIn setToken={setToken} />} />
+
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route
+            path="/reset-password/:resetPwdToken"
+            element={<ResetPasswordPage />}
+          />
           <Route
             path="/home"
             element={
@@ -107,6 +116,10 @@ function App() {
                 <ProfileDetail token={token} />
               </Protected>
             }
+          />
+          <Route
+            path="/verification"
+            element={<VerficationCode token={token} />}
           />
         </Routes>
       </BrowserRouter>

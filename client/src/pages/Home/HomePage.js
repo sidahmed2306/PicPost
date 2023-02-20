@@ -12,10 +12,9 @@ export default function HomePage({ token }) {
   const [result, setResult] = useState([]);
   const [newLike, setNewLike] = useState([]);
   const [likeState, setLikeState] = useState(false);
-
   const [myUserId, setMyUserId] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
+
   const fetchPost = () => {
     fetch(`http://localhost:9003/api/v1/users/home`, {
       method: "GET",
@@ -69,13 +68,16 @@ export default function HomePage({ token }) {
   console.log("newlike", myUserId);
   console.log("result", result);
   return (
-    <div>
+    <div className="homepage">
       <section className="home-page">
         <div className="div-flex2">
-          <Link to="/home">
-            <img src={miniLogo}></img>
-          </Link>
-          <h2 className="profile-username">PicPost</h2>
+          <div className="logo-name">
+            <Link to="/home">
+              <img src={miniLogo}></img>
+            </Link>
+            <h2 className="profile-username">PicPost</h2>
+          </div>
+
           <div className="icons2">
             <Link to="/upload">
               <img src={addNewPost}></img>
@@ -92,12 +94,13 @@ export default function HomePage({ token }) {
               addLike(elt._id);
             }}
             isLikedByMe={elt.likes.map((elt) => elt._id).includes(myUserId)}
-            profilePicture={elt.author.profilePicture.url}
-            username={elt.author.userName}
-            job={elt.author.job}
+            profilePicture={elt.author?.profilePicture.url}
+            username={elt.author?.userName}
+            job={elt.author?.job}
             postImage={elt.img?.url}
             likes={elt.likes}
             id={elt._id}
+            profileId={elt.author._id}
             comments={elt.comments}
           />
         ))}

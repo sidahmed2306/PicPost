@@ -1,43 +1,93 @@
-body{
-    /* background-color: #e5e5e5; */
-    background-color: #f1f1f1; 
+body {
+  background-color: #f1f1f1;
 }
-.search-wrapper{
-    
+
+.searchbar-wrapper {
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6%;
+  margin-bottom: 5%;
+  box-shadow: 11px 11px 30px #aaaaaa, -11px -11px 30px #f4f4f4;
+  border: 1px solid #ff4d67;
+  border-radius: 25px;
 }
-.searchbar-wrapper{
-    padding: 20px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 6%;
-    margin-bottom: 5%;
-    box-shadow: 11px 11px 30px #AAAAAA, -11px -11px 30px #F4F4F4;
-    border: 1px solid #ff4d67;
-    border-radius: 25px;
+
+.lupe {
+  margin: auto;
+  color: black;
+  width: 30px;
 }
-.searchbar-wrapper input{
-    height: 40px;
-    font-size: 1.8rem;
-    border-radius: 25px;
-    padding-left: 2%;
-    border: 1px solid #ff4d67;
-    padding-left: 20px;
-    
-    box-shadow: inset 11px 11px 30px #AAAAAA, inset -11px -11px 30px #F4F4F4;
+.container {
+  /* padding: auto 20px; */
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.searchbar-wrapper input:focus{
-    box-shadow: 11px 11px 30px #AAAAAA, -11px -11px 30px #F4F4F4;
-    border: 1px solid #CFCFCFCF;
+.result-section {
+  padding: auto 10px;
 }
-.lupe{
-    margin-right: 2%;
-    height: 30px;
+h1 {
+  color: #fff;
+  font-weight: 400;
 }
-.divide{
-    height: 5px;
-    width: 98%;
-    background-color: #ff4d67;
-    border-radius: 4px;
-    margin: 1% 2% 6% 1%;
+.search-box input,
+.search-box button {
+  border: none;
+  background: none;
+  outline: none;
+}
+button {
+  cursor: pointer;
+}
+.search-box {
+  display: flex;
+  background-color: #ff4d67;
+  border-radius: 4em;
+}
+.search-box-input {
+  width: 0px;
+  font-size: 1em;
+  color: #fff;
+  transition: 0.5s;
+}
+.search-box-btn {
+  display: flex;
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  background: white;
+  transition: 0.3s;
+}
+.search-box-icon {
+  margin: auto;
+  color: black;
+}
+.search-box-input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+.search-box:hover .search-box-input {
+  padding-left: 2em;
+  padding-right: 1em;
+  width: 340px;
+}
+.search-box-btn:active {
+  transform: scale(0.75);
+}
+.divide {
+  height: 5px;
+  width: 98%;
+  background-color: #ff4d67;
+  border-radius: 4px;
+  margin: 1% 2% 6% 1%;
+}
+.profilePicture {
+  margin-top: 20%;
 }
