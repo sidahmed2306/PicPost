@@ -13,7 +13,11 @@
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-right: 7vw;
+}
+.home-username {
+  display: flex;
+  gap: 22.4px;
+  margin-left: 10px;
 }
 
 /* das ist für home */
@@ -23,16 +27,16 @@
   justify-content: space-between;
   padding-bottom: 1.5vh;
   border-bottom: 2px solid #eeeeee;
-  margin-bottom: 1vh;
+  margin-bottom: 34px;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* grid-template-rows: repeat(auto, 150px); */
-  grid-template-rows: 200px;
+
   place-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 .grid-item-container {
@@ -71,20 +75,22 @@
   margin: 20px;
 }
 
-div.icons {
+div .icons {
   display: flex;
   justify-content: space-between;
   width: 8rem;
   margin-left: 2rem;
+  margin-right: 10px;
 }
 
 .counts {
-  margin: 2vh auto;
-  border-bottom: 1px solid #eeeeee;
+  margin: 34px auto;
+  border-bottom: 1px solid #d9d9d9;
+  padding-bottom: 24px;
 }
 
 .counts div {
-  width: 100px;
+  width: 100%;
 }
 
 .counts p {
@@ -104,16 +110,26 @@ a.bio {
   display: block;
 }
 
-a.link {
+.profile-bio #link {
   margin-top: 0.5rem;
   text-decoration: none;
   display: inline-block;
-  color: linear-gradient(180deg, #246bfd 0%, #6f9eff 100%);
-  font-family: Urbanist-Bold;
+  color: RGB(73, 127, 254);
+  font-family: "Urbanist";
+  font-weight: 700;
+  font-size: 14px;
+}
+.counts > div:first-child {
+  border-right: 1px solid black;
+}
+.counts > div:nth-of-type(2) {
+  border-right: 1px solid black;
 }
 
 .Feeds-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
   padding: 0 2rem 0.75rem 2rem;
   border-bottom: 4px solid #ff4d67;

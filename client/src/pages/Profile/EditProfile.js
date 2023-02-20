@@ -83,7 +83,7 @@ export default function EditProfile({ token }) {
       });
   }
   const cancelEdit = (event) => {
-    event.preventDefault();
+    navigate("/profile");
   };
   return (
     <section>
@@ -160,6 +160,7 @@ export default function EditProfile({ token }) {
         </select>
 
         <button onClick={editProfile}>Update</button>
+
         <button onClick={cancelEdit}>Cancel</button>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>

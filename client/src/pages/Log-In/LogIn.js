@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/img/Logo.svg";
 
-
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -56,10 +55,11 @@ export default function LogIn({ setToken }) {
         <button onClick={login}>Login</button>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
-      <Link>Forgot the password?</Link>
+      <Link to="/forgot-password">Forgot the password?</Link>
       <div>
         Don't have an account?
         <Link to="/sign-up">Sign up</Link>
+        <Link to="/verification">verfication</Link>
       </div>
     </div>
   );

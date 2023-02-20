@@ -50,14 +50,17 @@ export default function ProfilePage({ token, setToken }) {
   }
   console.log(profileInfo);
   return (
-    <div className="profile">
+    <div className="profile main">
       <div className="div-flex">
-        <Link to="/home">
-          <img src={miniLogo}></img>
-        </Link>
-        <h2 className="profile-username">
-          {profileInfo ? profileInfo.userName : "Loading..."}
-        </h2>
+        <div className="home-username">
+          <Link to="/home">
+            <img src={miniLogo}></img>
+          </Link>
+          <h2 className="profile-username">
+            {profileInfo ? profileInfo.userName : "Loading..."}
+          </h2>
+        </div>
+
         <div className="icons">
           <Link to="/upload">
             <img src={addNewPost}></img>
@@ -91,17 +94,14 @@ export default function ProfilePage({ token, setToken }) {
             : "Loading..."}
         </h3>
         <p>{profileInfo ? profileInfo.job : "Loading..."}</p>
-        <a className="bio">{profileInfo ? profileInfo.bio : "Loading..."}</a>
-        <Link className="link">
-          {profileInfo ? profileInfo.link : "Loading..."}
-        </Link>
+        <Link id="link">{profileInfo ? profileInfo.link : "Loading..."}</Link>
 
         <div className="div-flex counts">
           <div>
             <h3>{profileInfo ? profileInfo.postCount : "Loading..."}</h3>
             <p>Posts</p>
           </div>
-          <div className="border">
+          <div>
             <h3>{profileInfo ? profileInfo.followersCount : "Loading..."}</h3>
             <p>Follower</p>
           </div>
