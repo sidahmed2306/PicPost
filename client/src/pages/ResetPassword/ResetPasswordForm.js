@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { apiBaseUrl } from "../../api";
-
+import "./resetPaaswort.css";
 const ForogtPasswordForm = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -21,7 +21,7 @@ const ForogtPasswordForm = () => {
       return;
     }
 
-    fetch(`http://localhost:9003/api/v1/users/reset-password`, {
+    fetch(`${apiBaseUrl}/users/reset-password`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,20 +44,39 @@ const ForogtPasswordForm = () => {
   }
 
   return (
-    <div>
-      <form>
-        <input
-          type="password"
-          placeholder="hallo123"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
-        <button onClick={resetPassword}>Reset Password</button>
+    <div className="reset-password-section">
+      <form className="foregt-form">
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="password"
+            placeholder="enter your new password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            Password
+          </label>
+          <span>enter your password</span>
+        </formgroup>
+        <formgroup>
+          <input
+            type="password"
+            className="forget-passwort"
+            value={passwordConfirmation}
+            placeholder="confirm your new passsword "
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            Password
+          </label>
+          <span>enter your password</span>
+        </formgroup>
+        <button id="login-btn" onClick={resetPassword}>
+          Reset Password
+        </button>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {successMessage && (
           <>

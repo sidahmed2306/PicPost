@@ -13,7 +13,8 @@ body {
   left: 0;
   display: flex;
   border-top: 1px solid #ff4d67;
-  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+  background-color: white;
 }
 
 .navbar-icons {
@@ -24,21 +25,21 @@ body {
 }
 .home1 {
   border-radius: 15px;
-  background: linear-gradient(145deg, #f0f0f0, #cacaca);
-  box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff;
+  /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+  /* box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff; */
 }
 .search1 {
   border-radius: 15px;
-  background: linear-gradient(145deg, #f0f0f0, #cacaca);
-  box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff;
+  /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+  /* box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff; */
 }
 .upload1 {
   border-radius: 15px;
-  background: linear-gradient(145deg, #f0f0f0, #cacaca);
-  box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff;
+  /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+  /* box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff; */
 }
 .profile1 {
   border-radius: 15px;
-  background: linear-gradient(145deg, #f0f0f0, #cacaca);
-  box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff;
+  /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+  /* box-shadow: 5px 5px 20px #9c9c9c, -5px -5px 20px #ffffff; */
 }

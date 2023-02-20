@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { makeFormData } from "../../utils/formData";
+import { apiBaseUrl } from "../../api";
+import editProfilee from "../../assets/img/editProfile.svg";
+import backarrow from "../../assets/img/backArrow.svg";
 export default function EditProfile({ token }) {
   const [firstName, setFirstName] = useState("");
   const [result, setResult] = useState("");
@@ -20,7 +23,7 @@ export default function EditProfile({ token }) {
   const [profilePicturePreview, setProfilePicturePreview] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:9003/api/v1/users/profile`, {
+    fetch(`${apiBaseUrl}/users/profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +65,7 @@ export default function EditProfile({ token }) {
       gender,
     });
 
-    fetch(`http://localhost:9003/api/v1/users/profile`, {
+    fetch(`${apiBaseUrl}/users/profile`, {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -86,82 +89,159 @@ export default function EditProfile({ token }) {
     navigate("/profile");
   };
   return (
-    <section>
-      <div>
-        <Link to="/profile">.</Link>
+    <section className="editprofile-section">
+      <div style={{ display: "flex", padding: "20px" }}>
+        <Link to="/profile">
+          <img src={backarrow} alt="backarrow" />
+        </Link>
         <h2>Edit Profile</h2>
       </div>
-      <form className="register-form">
-        <input
-          type="text"
-          placeholder="Firstname"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Lastname"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="job"
-          value={job}
-          onChange={(e) => setJob(e.target.value)}
-        ></input>
-        <input
-          type="date"
-          placeholder="16.04.1994"
-          value={birthDate}
-          onChange={(e) => setBirthDate(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email@domain.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          id="profile_picture"
-          type="file"
-          onChange={(e) => setProfilePicture(e.target.files[0])}
-        />
-        <input
-          type="text"
-          placeholder="link"
-          value={link}
-          onChange={(e) => setlink(e.target.value)}
-        />
-        {/* <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        /> */}
-        <input
-          type="tel"
-          placeholder="Telefon"
-          value={telNumber}
-          onChange={(e) => setTelNumber(e.target.value)}
-        />
-        <select
-          onChange={(event) => setGender(event.target.value)}
-          value={gender}
-        >
-          <option value={"Male"}>Male</option>
-          <option value={"Female"}>Female</option>
-        </select>
+      <form className="register-form foregt-form">
+        <div className="profile-picture-w-edit-profile-editpage">
+          <input
+            onChange={(e) => setProfilePicture(e.target.files[0])}
+            type="file"
+            style={{ display: "none" }}
+            id="files"
+          />
 
-        <button onClick={editProfile}>Update</button>
+          <label id="labelEditProfile" htmlFor="files">
+            <img
+              src={profilePicturePreview}
+              alt="profil-picture"
+              className="profile-picture"
+              style={{ width: "120px" }}
+            ></img>
+            <img id="edit-profile" src={editProfilee}></img>
+          </label>
+        </div>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="text"
+            placeholder="Firstname"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            firsname
+          </label>
+          <span>enter your firstname</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="text"
+            placeholder="Lastname"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            lastname
+          </label>
+          <span>enter your lastname</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="text"
+            placeholder="job"
+            value={job}
+            onChange={(e) => setJob(e.target.value)}
+          ></input>
+          <label for="email">
+            <br />
+            job
+          </label>
+          <span>enter your job</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="date"
+            placeholder="16.04.1994"
+            value={birthDate}
+            onChange={(e) => setBirthDate(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            date
+          </label>
+          <span>enter your date</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="text"
+            placeholder="Username"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            username
+          </label>
+          <span>enter your username</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="email"
+            placeholder="Email@domain.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            email
+          </label>
+          <span>enter your email</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="text"
+            placeholder="link"
+            value={link}
+            onChange={(e) => setlink(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            link
+          </label>
+          <span>enter your link</span>
+        </formgroup>
+        <formgroup>
+          <input
+            className="forget-passwort"
+            type="tel"
+            placeholder="Telefon"
+            value={telNumber}
+            onChange={(e) => setTelNumber(e.target.value)}
+          />
+          <label for="email">
+            <br />
+            tel-number
+          </label>
+          <span>enter your tel-number</span>
+        </formgroup>
+        <formgroup>
+          <select
+            className="forget-passwort"
+            onChange={(event) => setGender(event.target.value)}
+            value={gender}
+          >
+            <option value={"Male"}>Male</option>
+            <option value={"Female"}>Female</option>
+          </select>
+        </formgroup>
 
-        <button onClick={cancelEdit}>Cancel</button>
+        <button id="login-btn" onClick={editProfile}>
+          Update
+        </button>
+
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </section>

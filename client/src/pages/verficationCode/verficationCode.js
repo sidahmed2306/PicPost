@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./verfication.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import { apiBaseUrl } from "../../api";
 function VerificationCode() {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -41,7 +41,7 @@ function VerificationCode() {
     } else {
       setError(false);
       const verificationCode = code.join("");
-      fetch("http://localhost:9003/api/v1/users/acount-verfication", {
+      fetch(`${apiBaseUrl}/users/acount-verfication`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

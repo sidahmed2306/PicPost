@@ -15,7 +15,7 @@ import Search from "./pages/Search/Search";
 import ProfileDetail from "./pages/Profile/ProfileDetail";
 import Protected from "./components/Protected";
 import VerficationCode from "./pages/verficationCode/verficationCode";
-
+import { apiBaseUrl } from "./api";
 function App() {
   const [token, setToken] = useState("");
   useEffect(() => {
@@ -37,7 +37,7 @@ function App() {
     const refreshTokenTimeoutID = setTimeout(() => {
       console.log("about to do silet refresh");
 
-      fetch(`http://localhost:9003/api/v1/users/refresh-token`, {
+      fetch(`${apiBaseUrl}/users/refresh-token`, {
         method: "POST",
         credentials: "include",
       })

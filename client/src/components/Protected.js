@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-
+import { apiBaseUrl } from "../api";
 const Protected = ({ token, setToken, children }) => {
   const [loading, setLoading] = useState(true);
 
@@ -10,7 +10,7 @@ const Protected = ({ token, setToken, children }) => {
       return;
     }
 
-    fetch(`http://localhost:9003/api/v1/users/refresh-token`, {
+    fetch(`${apiBaseUrl}/users/refresh-token`, {
       method: "POST",
       credentials: "include", // here: take refresh token from httpOnly secure cookie and send it
     })

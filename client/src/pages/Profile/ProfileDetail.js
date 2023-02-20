@@ -6,6 +6,7 @@ import addFollow from "../../assets/img/follow-person.svg";
 import Navbar from "../../components/Navbar/Navbar";
 import commentIcon from "../../assets/img/commentIcon.svg";
 import like from "../../assets/img/likeHeart.svg";
+import { apiBaseUrl } from "../../api";
 import "./profileDetail.css";
 const ProfileDetail = ({ token }) => {
   const [postImg, setPostImg] = useState();
@@ -20,7 +21,7 @@ const ProfileDetail = ({ token }) => {
 
   const { id } = useParams();
   const fetchPost = () => {
-    fetch(`http://localhost:9003/api/v1/users/profile-detail/${id}`, {
+    fetch(`${apiBaseUrl}/users/profile-detail/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +46,7 @@ const ProfileDetail = ({ token }) => {
   useEffect(fetchPost, []);
 
   const follow = () => {
-    fetch(`http://localhost:9003/api/v1/users/add-follwer`, {
+    fetch(`${apiBaseUrl}/users/add-follwer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

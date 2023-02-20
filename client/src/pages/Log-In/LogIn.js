@@ -14,7 +14,7 @@ export default function LogIn({ setToken }) {
 
   function login(event) {
     event.preventDefault();
-    fetch(`${apiBaseUrl}/login`, {
+    fetch(`${apiBaseUrl}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,6 @@ export default function LogIn({ setToken }) {
       <div>
         Don't have an account?
         <Link to="/sign-up">Sign up</Link>
-        <Link to="/verification">verfication</Link>
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
+.uploud-section {
+  margin-bottom: 100px;
+}
 .caption {
   width: 92%;
   border-radius: 25px;
-  padding: 15px 0;
+  padding: 15px 20px;
   border: 1px solid #ff4d67;
   resize: none;
   background-color: #bdbdbd;

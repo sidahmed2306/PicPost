@@ -7,6 +7,7 @@ import TimeAgo from "../../components/TimeAgo";
 import CommentItem from "../../components/comments/CommentItem";
 import LikeAndComment from "../../components/Home/LikeAndComment";
 import "./commentsection.css";
+import { apiBaseUrl } from "../../api";
 
 // http://localhost:9003/api/v1/users/profile
 export default function CommentSection({ token }) {
@@ -38,7 +39,7 @@ export default function CommentSection({ token }) {
   //   }, [token]);
 
   const showComment = () => {
-    fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
+    fetch(`${apiBaseUrl}/post/add-comment/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +58,7 @@ export default function CommentSection({ token }) {
   };
   useEffect(showComment, [token]);
   const addComment = () => {
-    fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
+    fetch(`${apiBaseUrl}/post/add-comment/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +78,6 @@ export default function CommentSection({ token }) {
         return response.json();
       })
       .then((newComment) => {
-        console.log("newcomment hallo");
         showComment();
         setNewComment(newComment);
       })
@@ -86,7 +86,7 @@ export default function CommentSection({ token }) {
         throw err;
       });
   };
-  //   useEffect(addComment, [token]);
+ 
   console.log(postInfo?.post);
   console.log("newcomment", newComment);
   console.log("text", text);
