@@ -60,6 +60,36 @@ const postLogin = catchErrors(async (req, res) => {
   });
 });
 
+const postForgotPassword = catchErrors(async (req, res) => {
+  const email = req.body.email;
+  const result = await UserServices.forgotPassword({ email });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
+const postResetPassword = catchErrors(async (req, res) => {
+  const userId = req.verifiedUserClaims.sub;
+  const password = req.body.password;
+  const result = await UserServices.resetPassword({ userId, password });
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
+const verficationCode = catchErrors(async (req, res) => {
+  const verficationCode = req.body.verificationCode;
+
+  const result = await UserServices.userVerification(verficationCode);
+
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
 const getShowProfile = catchErrors(async (req, res) => {
   const userId = req.verifiedUserClaims.sub;
   const result = await UserServices.showProfile({ userId });
@@ -94,7 +124,7 @@ const postAddfollowers = catchErrors(async (req, res) => {
 
 const getShowPost = catchErrors(async (req, res) => {
   const idUser = req.verifiedUserClaims.sub;
-  const result = await UserServices.showPosts( idUser );
+  const result = await UserServices.showPosts(idUser);
   return res.json({
     status: "ok",
     result,
@@ -103,7 +133,8 @@ const getShowPost = catchErrors(async (req, res) => {
 
 const getShowUser = catchErrors(async (req, res) => {
   const idUser = req.verifiedUserClaims.sub;
-  const result = await UserServices.showUsers({ idUser });
+  const profileId = req.body.id;
+  const result = await UserServices.showUsers({ idUser, profileId });
   return res.json({
     status: "ok",
     result,
@@ -147,4 +178,7 @@ module.exports = {
   getShowProfileDetail,
   postRefreshToken,
   postAddfollowers,
+  postForgotPassword,
+  postResetPassword,
+  verficationCode,
 };

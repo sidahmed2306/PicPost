@@ -11,6 +11,10 @@ const { showPostDetail } = require("./use-cases/show-PostDetail");
 const { addLike } = require("./use-cases/add-like");
 const { refreshToken } = require("./use-cases/refresh-token");
 const { addfollowers } = require("./use-cases/add-follow");
+const { forgotPassword } = require("./use-cases/forgot-password");
+const { resetPassword } = require("./use-cases/reset-password");
+const { sendVerficationMail } = require("./utilis/send-verficationMail");
+const { userVerification } = require("./use-cases/verfication_code");
 
 const UserServices = {
   refreshToken,
@@ -22,6 +26,10 @@ const UserServices = {
   showUsers,
   showProfileDetail,
   addfollowers,
+  forgotPassword,
+  userVerification,
+  resetPassword,
+  sendVerficationMail,
 };
 
 const PostServices = {

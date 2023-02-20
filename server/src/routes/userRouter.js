@@ -27,9 +27,23 @@ userRouter.post(
 );
 
 userRouter.post(
+  "/acount-verfication",
+
+  userController.verficationCode
+);
+
+userRouter.post(
   "/login",
   validate(UserValidations.loginUserValidation.body),
   userController.postLogin
+);
+
+userRouter.post("/forgot-password", userController.postForgotPassword);
+
+userRouter.post(
+  "/reset-password",
+  makeAuthMiddleware({ tokenType: "password-reset" }),
+  userController.postResetPassword
 );
 
 userRouter.post("/logout", (req, res) => {
