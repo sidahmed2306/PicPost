@@ -16,6 +16,8 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, require: false },
   link: { type: String, require: false },
   job: { type: String, require: false },
+  verified: { type: Boolean, default: false },
+  verificationCode: { type: String },
   // profilPicture: { type: String, default: avatarPlaceHolder },
   profilePicture: {
     id: {

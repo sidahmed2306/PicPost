@@ -70,4 +70,5 @@ module.exports = {
   postAddComment,
   getShowPostDetail,
   postAddLike,
+  
 };
