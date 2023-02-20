@@ -1,5 +1,7 @@
 const { User } = require("../../models");
+const crypto = require("crypto");
 const { createRandomSalt, createHash } = require("../utilis/createHash");
+const { sendVerficationMail } = require("../utilis/send-verficationMail");
 
 async function userRegister({
   firstName,
@@ -20,11 +22,17 @@ async function userRegister({
   }
   const passwordSalt = createRandomSalt();
   const passwordhash = createHash(`${password}${passwordSalt}`);
+  const randomVerificationCode = crypto
+    .randomInt(0, 999999)
+    .toString()
+    .padStart(4, "0");
   const newUser = await User.create({
     firstName,
     lastName,
     userName,
     birthDate,
+    verificationCode: randomVerificationCode,
+
     email,
     passwordhash,
     passwordSalt,
@@ -33,6 +41,23 @@ async function userRegister({
     bio,
     profilPicture,
   });
+  const message = `
+  Hi ${newUser.firstName}!
+
+  Here is your verfication code:${newUser.verificationCode}
+
+  Yours,
+ Picpost Team
+`;
+
+  const sent = await sendVerficationMail({
+    to: newUser.email,
+    subject: "Account verification",
+    message,
+  });
+  if (!sent) {
+    throw new Error("Could not send email, please try again later");
+  }
 
   return {
     _id: newUser._id,
