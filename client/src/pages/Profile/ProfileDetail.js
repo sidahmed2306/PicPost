@@ -144,14 +144,16 @@ const ProfileDetail = ({ token }) => {
       </div>
       <section className="grid-container">
         {postImg?.map((elt, index) => (
-          <div className="grid-item-container">
-            <img
-              key={index}
-              className="grid-item"
-              src={`${elt.img.url}`}
-              alt=""
-            />
-          </div>
+          <Link to={`/add-comment/${elt._id}`}>
+            <div className="grid-item-container">
+              <img
+                key={index}
+                className="grid-item"
+                src={`${elt.img.url}`}
+                alt=""
+              />
+            </div>
+          </Link>
         ))}
       </section>
       <Navbar page={"profile"} />
