@@ -49,7 +49,7 @@ export default function ProfilePage({ token, setToken }) {
         navigate("/log-in"); // LogoutPage will delete Token and navigate to /login
       });
   }
-  console.log(profileInfo);
+
   return (
     <div className="profile main">
       <div className="div-flex">

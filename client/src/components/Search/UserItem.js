@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./UserItem.css";
 
 export default function UserItem(props) {
-  // props.getAllUser();
-  console.log(props.isFollow);
   return (
     <div className="user-item">
       <Link to={`/profil-detail/${props.id}`}>

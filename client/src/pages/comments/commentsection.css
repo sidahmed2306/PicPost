@@ -55,7 +55,7 @@
   align-items: center;
   position: fixed;
   bottom: 25px;
-  gap: 5px;
+  gap: 8px;
   width: 100%;
 }
 .writecomment-section input {
@@ -63,6 +63,7 @@
   height: 28px;
   border-radius: 20px;
   border: none;
+  padding: 10px;
 }
 
 .likeundcomment-section {

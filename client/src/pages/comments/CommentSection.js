@@ -4,7 +4,7 @@ import backArrow from "../../assets/img/backArrow.svg";
 import paperPlane from "../../assets/img/paperPlane.svg";
 import UserItem from "../../components/Search/UserItem";
 import TimeAgo from "../../components/TimeAgo";
-import CommentItem from "../../components/comments/CommentItem";
+
 import LikeAndComment from "../../components/Home/LikeAndComment";
 import "./commentsection.css";
 import { apiBaseUrl } from "../../api";
@@ -16,6 +16,7 @@ export default function CommentSection({ token }) {
   const [authorInfo, setAuthorInfo] = useState();
   const [newComment, setNewComment] = useState("");
   const [profile, setProfile] = useState("");
+  const [profileId, setProfileId] = useState("");
   const [text, setText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { id } = useParams();
@@ -32,6 +33,7 @@ export default function CommentSection({ token }) {
       .then(({ status, result, error }) => {
         if (status === "ok") {
           setProfile(result);
+          setProfileId(result.user._id);
         } else {
           setErrorMessage(error.message);
         }
@@ -81,6 +83,7 @@ export default function CommentSection({ token }) {
       .then((newComment) => {
         showComment();
         setNewComment(newComment);
+        setText("");
       })
       .catch((err) => {
         console.error(`Error adding comment: ${err.message}`);
@@ -88,8 +91,6 @@ export default function CommentSection({ token }) {
       });
   };
 
-  console.log("newcomment", newComment);
-  console.log("text", text);
   return (
     <section className="comments-section">
       <div className="back-arrow">
@@ -99,6 +100,7 @@ export default function CommentSection({ token }) {
         <h3>Comments</h3>
       </div>
       <UserItem
+        isFollow={postInfo?.post?.author?.followers.includes(profileId)}
         profilePicture={postInfo?.post.author.profilePicture.url}
         userName={postInfo?.post?.author?.userName}
         job={postInfo?.post?.author.job}
@@ -140,8 +142,10 @@ export default function CommentSection({ token }) {
 
       <div className="writecomment-section">
         <img src={profile?.profilePicture?.url} alt="" />
+
         <input
-          className="comment-input"
+          // id="comment-input"
+          className="comment-input "
           type="text"
           placeholder=" write your Comments"
           value={text}

@@ -19,6 +19,7 @@ async function showProfile({ userId }) {
   const followingCount = following.length;
   const birthDate = user.birthDate;
   const telNumber = user.telNumber;
+  const _id = user._id;
 
   if (!user) {
     throw new Error("User not Found");
@@ -41,6 +42,7 @@ async function showProfile({ userId }) {
     followingCount,
     postImage,
     telNumber,
+    _id,
     user,
   };
 }
