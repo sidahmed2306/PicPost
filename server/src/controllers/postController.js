@@ -28,8 +28,9 @@ const addPost = catchErrors(async (req, res) => {
 });
 const getShowPostDetail = catchErrors(async (req, res) => {
   const postId = req.params.id;
+  const profileId = req.verifiedUserClaims.sub;
 
-  const result = await PostServices.showPostDetail({ postId });
+  const result = await PostServices.showPostDetail({ postId, profileId });
   return res.json({
     status: "ok",
     result,
@@ -70,5 +71,4 @@ module.exports = {
   postAddComment,
   getShowPostDetail,
   postAddLike,
-  
 };

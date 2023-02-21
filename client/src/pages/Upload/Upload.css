@@ -5,7 +5,7 @@
   width: 92%;
   border-radius: 25px;
   padding: 15px 20px;
-  border: 1px solid #ff4d67;
+  border: 1px solid linear-gradient(to right, #f98340, #f71442);
   resize: none;
   background-color: #bdbdbd;
   font-family: Urbanist-Reg;
@@ -20,12 +20,14 @@
 }
 .caption:focus {
   border-radius: 25px;
-  background: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
+
   box-shadow: inset 30px 30px 60px #bcbcbc, inset -30px -30px 60px #ffffff;
   color: #fff;
 }
 .uploadButton {
-  background: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
+
   padding: 10px 50.5px 10px 50.5px;
   color: #fafafa;
   border-radius: 25px;
@@ -60,4 +62,7 @@ textarea::placeholder:focus {
   text-align: center;
   margin-top: 30px;
   color: #ffffff;
+}
+#caption {
+  width: 80%;
 }

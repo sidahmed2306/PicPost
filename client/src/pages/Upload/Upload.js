@@ -56,17 +56,18 @@ export default function Upload({ token }) {
 
       <formgroup>
         <input
-          className="caption"
+          // className="caption"
           type="textarea"
-          className="forget-passwort"
+          className="forget-passwort "
+          id="caption"
           placeholder="caption your post..."
           onChange={handleCaptionChange}
         />
-        <label for="textarea">
+        {/* <label for="textarea">
           <br />
           caption
         </label>
-        <span>enter your caption</span>
+        <span>enter your caption</span> */}
       </formgroup>
       <button onClick={upload} className="uploadButton">
         Post

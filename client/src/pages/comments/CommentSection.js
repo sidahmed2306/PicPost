@@ -49,6 +49,7 @@ export default function CommentSection({ token }) {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
+          console.log("post info", result);
           setPostInfo(result);
           setAuthorInfo(result.author);
         } else {
@@ -86,8 +87,7 @@ export default function CommentSection({ token }) {
         throw err;
       });
   };
- 
-  console.log(postInfo?.post);
+
   console.log("newcomment", newComment);
   console.log("text", text);
   return (

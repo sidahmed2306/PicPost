@@ -48,7 +48,7 @@
   font-weight: 600;
   font-size: 14px;
   padding: 6px 16px;
-  background-color: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
   border-radius: 100px;
   border: none;
   color: white;
@@ -92,7 +92,7 @@
   gap: 8px;
   width: 348px;
   height: 45px;
-  background-color: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
   border-radius: 100px;
   font-family: "Urbanist";
   font-style: normal;

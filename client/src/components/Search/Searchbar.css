@@ -54,7 +54,7 @@ button {
 .search-box-input {
   width: 0px;
   font-size: 1em;
-  background-color: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
   transition: 0.5s;
   border-radius: 30px;
 }
@@ -90,7 +90,7 @@ button {
 .divide {
   height: 5px;
   width: 98%;
-  background-color: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
   border-radius: 4px;
   margin: 1% 2% 6% 1%;
 }
