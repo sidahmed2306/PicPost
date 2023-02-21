@@ -69,8 +69,6 @@ export default function Search({ token }) {
     );
   };
 
-  console.log(allUser);
-  console.log(myUserId);
   return (
     <section className="search-section">
       <Searchbar searchTerm={searchTerm} handleChange={handleChange} />
@@ -79,12 +77,6 @@ export default function Search({ token }) {
           return (
             <div className="result-section">
               <UserItem
-                // follow={() => {
-                //   follow(allUser.map((elt) => elt._id));
-                // }}
-                // getAllUser={() => {
-                //   getAllUser(allUser.map((elt) => elt._id));
-                // }}
                 isFollow={user.followers
                   ?.map((elt) => elt._id)
                   .includes(myUserId)}

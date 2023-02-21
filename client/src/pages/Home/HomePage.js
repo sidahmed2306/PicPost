@@ -7,6 +7,8 @@ import "./home.css";
 import miniLogo from "../../assets/img/miniLogo.svg";
 import addNewPost from "../../assets/img/addNewPost.svg";
 import { apiBaseUrl } from "../../api";
+import TimeAgo from "../../components/TimeAgo";
+
 export default function HomePage({ token }) {
   const [id, setId] = useState("");
   const [result, setResult] = useState([]);
@@ -38,7 +40,6 @@ export default function HomePage({ token }) {
   useEffect(fetchPost, [token]);
 
   const addLike = (postId) => {
-    console.log("postId", postId);
     setId(postId);
     fetch(`${apiBaseUrl}/post/add-like`, {
       method: "POST",
@@ -65,8 +66,7 @@ export default function HomePage({ token }) {
         throw err;
       });
   };
-  console.log("newlike", myUserId);
-  console.log("result", result);
+
   return (
     <div className="homepage">
       <section className="home-page">

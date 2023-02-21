@@ -50,6 +50,10 @@ function App() {
     return () => clearTimeout(refreshTokenTimeoutID);
   }, [token]);
 
+  useEffect(() => {
+    document.title = "PicPost";
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>

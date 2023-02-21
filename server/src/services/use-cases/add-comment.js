@@ -1,4 +1,4 @@
-const { Post } = require("../../models");
+const { User, Post } = require("../../models");
 
 async function addComment({ postId, text, author }) {
   try {

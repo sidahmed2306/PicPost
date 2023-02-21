@@ -41,7 +41,7 @@ body {
   height: 0.1px;
 }
 label[for="files"] {
-  background: #ff4d67;
+  background: linear-gradient(to right, #f98340, #f71442);
   padding: 14px 24px 10px 24px;
   color: #fff;
   border-radius: 25px;

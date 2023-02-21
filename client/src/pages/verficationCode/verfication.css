@@ -6,12 +6,16 @@
   color: #333;
   height: 100vh;
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 #dialog {
   margin: 10px auto;
   padding: 20px 30px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   box-shadow: 0 0 4px #ccc;
 
   overflow: hidden;

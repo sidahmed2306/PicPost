@@ -4,7 +4,7 @@ import backArrow from "../../assets/img/backArrow.svg";
 import paperPlane from "../../assets/img/paperPlane.svg";
 import UserItem from "../../components/Search/UserItem";
 import TimeAgo from "../../components/TimeAgo";
-import CommentItem from "../../components/comments/CommentItem";
+
 import LikeAndComment from "../../components/Home/LikeAndComment";
 import "./commentsection.css";
 import { apiBaseUrl } from "../../api";
@@ -15,28 +15,30 @@ export default function CommentSection({ token }) {
   const [postInfo, setPostInfo] = useState();
   const [authorInfo, setAuthorInfo] = useState();
   const [newComment, setNewComment] = useState("");
+  const [profile, setProfile] = useState("");
+  const [profileId, setProfileId] = useState("");
   const [text, setText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { id } = useParams();
 
-  //   useEffect(() => {
-  //     fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then(({ status, result, error }) => {
-  //         if (status === "ok") {
-  //           setPostInfo(result);
-  //           setAuthorInfo(result.author);
-  //         } else {
-  //           setErrorMessage(error.message);
-  //         }
-  //       });
-  //   }, [token]);
+  useEffect(() => {
+    fetch(`http://localhost:9003/api/v1/users/profile`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then(({ status, result, error }) => {
+        if (status === "ok") {
+          setProfile(result);
+          setProfileId(result.user._id);
+        } else {
+          setErrorMessage(error.message);
+        }
+      });
+  }, [token]);
 
   const showComment = () => {
     fetch(`${apiBaseUrl}/post/add-comment/${id}`, {
@@ -49,6 +51,7 @@ export default function CommentSection({ token }) {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
+          console.log("post info", result);
           setPostInfo(result);
           setAuthorInfo(result.author);
         } else {
@@ -80,16 +83,14 @@ export default function CommentSection({ token }) {
       .then((newComment) => {
         showComment();
         setNewComment(newComment);
+        setText("");
       })
       .catch((err) => {
         console.error(`Error adding comment: ${err.message}`);
         throw err;
       });
   };
- 
-  console.log(postInfo?.post);
-  console.log("newcomment", newComment);
-  console.log("text", text);
+
   return (
     <section className="comments-section">
       <div className="back-arrow">
@@ -99,9 +100,11 @@ export default function CommentSection({ token }) {
         <h3>Comments</h3>
       </div>
       <UserItem
+        isFollow={postInfo?.post?.author?.followers.includes(profileId)}
         profilePicture={postInfo?.post.author.profilePicture.url}
         userName={postInfo?.post?.author?.userName}
         job={postInfo?.post?.author.job}
+        id={postInfo?.post.author._id}
       />
 
       <div className="post-img-container">
@@ -138,9 +141,11 @@ export default function CommentSection({ token }) {
       </div>
 
       <div className="writecomment-section">
-        <img src={postInfo?.post.author.profilePicture.url} alt="" />
+        <img src={profile?.profilePicture?.url} alt="" />
+
         <input
-          className="comment-input"
+          // id="comment-input"
+          className="comment-input "
           type="text"
           placeholder=" write your Comments"
           value={text}

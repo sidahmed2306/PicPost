@@ -64,7 +64,7 @@ function VerificationCode() {
   return (
     <div id="wrapper">
       <div id="dialog">
-        <h3>Please enter the 4-digit verification code we sent via Email:</h3>
+        <h3>Please enter the 6-digit verification code we sent via Email:</h3>
         <span>(we want to make sure it's you )</span>
         <div id="form">
           <div className="code-inputs">
@@ -85,16 +85,15 @@ function VerificationCode() {
             ))}
           </div>
           <button
-            className="btn btn-primary btn-embossed"
+            id="login-btn"
+            // className="btn btn-primary btn-embossed"
             onClick={handleVerification}
           >
             Verify
           </button>
         </div>
 
-        {error && (
-          <div> {errorMessage}Please enter a valid verification code.</div>
-        )}
+        {error && <div> {errorMessage}</div>}
       </div>
     </div>
   );

@@ -4,11 +4,9 @@ async function userVerification(verificationCode) {
   console.log("verification", verificationCode);
   const user = await User.findOne({ verificationCode: verificationCode });
   if (!user) {
-    throw new Error("User not found");
-  }
-  if (user.verificationCode !== verificationCode) {
     throw new Error("Verification code is incorrect");
   }
+
   user.verified = true;
   user.verificationCode = "";
   await user.save();

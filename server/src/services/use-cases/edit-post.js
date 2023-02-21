@@ -1,7 +1,7 @@
-const { User } = require("../../models");
+const { Post } = require("../../models");
 
 async function editProfile({ postId, caption }) {
-  const user = await User.findByIdAndUpdate(
+  const post = await Post.findByIdAndUpdate(
     postId,
     {
       $set: {
@@ -10,17 +10,9 @@ async function editProfile({ postId, caption }) {
     },
     { new: true }
   ).exec();
-  console.log("user", user);
+  console.log("post", post);
   return {
-    firstName: user.firstName,
-    lastName: user.lastName,
-    email: user.email,
-    profilePicture: user.profilePicture,
-    job: user.job,
-    link: user.link,
-    telNumber: user.telNumber,
-    userName: user.userName,
-    birthDate: user.birthDate,
+    caption: caption,
   };
 }
 

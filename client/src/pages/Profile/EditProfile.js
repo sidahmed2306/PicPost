@@ -20,8 +20,17 @@ export default function EditProfile({ token }) {
   const [profilePicture, setProfilePicture] = useState(null);
   const navigate = useNavigate();
 
-  const [profilePicturePreview, setProfilePicturePreview] = useState("");
-
+  const [profilePicturePreview, setProfilePicturePreview] = useState(null);
+  const onImageChange = (event) => {
+    setProfilePicture(event.target.files[0]);
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        setProfilePicturePreview(e.target.result);
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  };
   useEffect(() => {
     fetch(`${apiBaseUrl}/users/profile`, {
       method: "GET",
@@ -41,7 +50,7 @@ export default function EditProfile({ token }) {
           setJob(result.job);
           setEmail(result.email);
           setlink(result.link);
-          setProfilePicturePreview(result.profilePicture.url);
+          setProfilePicture(result.profilePicture.url);
           setTelNumber(result.telNumber);
           setResult(result);
         } else {
@@ -99,7 +108,7 @@ export default function EditProfile({ token }) {
       <form className="register-form foregt-form">
         <div className="profile-picture-w-edit-profile-editpage">
           <input
-            onChange={(e) => setProfilePicture(e.target.files[0])}
+            onChange={onImageChange}
             type="file"
             style={{ display: "none" }}
             id="files"
@@ -107,7 +116,7 @@ export default function EditProfile({ token }) {
 
           <label id="labelEditProfile" htmlFor="files">
             <img
-              src={profilePicturePreview}
+              src={profilePicturePreview || profilePicture}
               alt="profil-picture"
               className="profile-picture"
               style={{ width: "120px" }}

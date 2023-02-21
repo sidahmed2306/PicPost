@@ -52,7 +52,9 @@ export default function LogIn({ setToken }) {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button onClick={login}>Login</button>
+        <button id="login-btn" onClick={login}>
+          Login
+        </button>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
       <Link to="/forgot-password">Forgot the password?</Link>
