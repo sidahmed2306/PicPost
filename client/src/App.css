@@ -22,10 +22,10 @@ h5 {
   font-family: Urbanist;
   font-weight: 700;
 }
-
 p {
   font-family: Urbanist;
   font-weight: 400;
+  margin-left: 4px;
 }
 
 a {

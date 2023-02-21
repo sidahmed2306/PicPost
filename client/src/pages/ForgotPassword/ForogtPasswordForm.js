@@ -24,7 +24,7 @@ const ForogtPasswordForm = () => {
           setErrorMessage(error.message);
           return;
         }
-
+        setErrorMessage("");
         setSuccessMessage("Success! Please check your inbox...");
       });
   }
@@ -56,7 +56,11 @@ const ForogtPasswordForm = () => {
         <button id="login-btn" onClick={forgotPassword}>
           Send Me Email
         </button>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {errorMessage && (
+          <p style={{ color: "red" }} className="error-message">
+            {errorMessage}
+          </p>
+        )}
         {successMessage && <p className="success-message">{successMessage}</p>}
       </form>
       <p>

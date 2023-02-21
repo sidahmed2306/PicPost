@@ -15,28 +15,28 @@ export default function CommentSection({ token }) {
   const [postInfo, setPostInfo] = useState();
   const [authorInfo, setAuthorInfo] = useState();
   const [newComment, setNewComment] = useState("");
+  const [profile, setProfile] = useState("");
   const [text, setText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { id } = useParams();
 
-  //   useEffect(() => {
-  //     fetch(`http://localhost:9003/api/v1/post/add-comment/${id}`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then(({ status, result, error }) => {
-  //         if (status === "ok") {
-  //           setPostInfo(result);
-  //           setAuthorInfo(result.author);
-  //         } else {
-  //           setErrorMessage(error.message);
-  //         }
-  //       });
-  //   }, [token]);
+  useEffect(() => {
+    fetch(`http://localhost:9003/api/v1/users/profile`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then(({ status, result, error }) => {
+        if (status === "ok") {
+          setProfile(result);
+        } else {
+          setErrorMessage(error.message);
+        }
+      });
+  }, [token]);
 
   const showComment = () => {
     fetch(`${apiBaseUrl}/post/add-comment/${id}`, {
@@ -102,6 +102,7 @@ export default function CommentSection({ token }) {
         profilePicture={postInfo?.post.author.profilePicture.url}
         userName={postInfo?.post?.author?.userName}
         job={postInfo?.post?.author.job}
+        id={postInfo?.post.author._id}
       />
 
       <div className="post-img-container">
@@ -138,7 +139,7 @@ export default function CommentSection({ token }) {
       </div>
 
       <div className="writecomment-section">
-        <img src={postInfo?.post.author.profilePicture.url} alt="" />
+        <img src={profile?.profilePicture?.url} alt="" />
         <input
           className="comment-input"
           type="text"

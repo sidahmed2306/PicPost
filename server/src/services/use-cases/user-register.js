@@ -25,7 +25,7 @@ async function userRegister({
   const randomVerificationCode = crypto
     .randomInt(0, 999999)
     .toString()
-    .padStart(4, "0");
+    .padStart(6, "0");
   const newUser = await User.create({
     firstName,
     lastName,
