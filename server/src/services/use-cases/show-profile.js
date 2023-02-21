@@ -19,6 +19,7 @@ async function showProfile({ userId }) {
   const followingCount = following.length;
   const birthDate = user.birthDate;
   const telNumber = user.telNumber;
+  const postId = post._id;
   const _id = user._id;
 
   if (!user) {
@@ -43,6 +44,7 @@ async function showProfile({ userId }) {
     postImage,
     telNumber,
     _id,
+    postId,
     user,
   };
 }

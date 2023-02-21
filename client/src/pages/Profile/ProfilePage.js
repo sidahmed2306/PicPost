@@ -13,6 +13,7 @@ import "./ProfilePage.css";
 
 export default function ProfilePage({ token, setToken }) {
   const [postImg, setPostImg] = useState();
+  const [result, setResult] = useState();
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,6 +29,7 @@ export default function ProfilePage({ token, setToken }) {
       .then((res) => res.json())
       .then(({ status, result, error }) => {
         if (status === "ok") {
+          setResult(result.post);
           setProfileInfo(result);
           setPostImg(result.postImage);
         } else {
@@ -49,6 +51,7 @@ export default function ProfilePage({ token, setToken }) {
         navigate("/log-in"); // LogoutPage will delete Token and navigate to /login
       });
   }
+  console.log(result);
 
   return (
     <div className="profile main">
@@ -117,10 +120,17 @@ export default function ProfilePage({ token, setToken }) {
         <h3 className="Feeds">Feeds</h3>
       </div>
       <section className="grid-container">
-        {postImg?.map((elt, index) => (
-          <div className="grid-item-container">
-            <img key={index} className="grid-item" src={`${elt.url}`} alt="" />
-          </div>
+        {result?.map((elt, index) => (
+          <Link to={`/updatpost/${elt._id}`}>
+            <div className="grid-item-container">
+              <img
+                key={index}
+                className="grid-item"
+                src={`${elt.img.url}`}
+                alt=""
+              />
+            </div>
+          </Link>
         ))}
       </section>
       <Navbar page={"profile"} />
