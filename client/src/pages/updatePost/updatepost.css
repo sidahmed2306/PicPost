@@ -1,0 +1,15 @@
+.updatepost {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 30px;
+}
+.updatecaption {
+  /* font-family: Urbanist; */
+  font-size: 20px;
+}
+.updateimg {
+  margin-left: 5px;
+}

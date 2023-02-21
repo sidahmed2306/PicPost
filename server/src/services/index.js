@@ -16,6 +16,7 @@ const { resetPassword } = require("./use-cases/reset-password");
 const { sendVerficationMail } = require("./utilis/send-verficationMail");
 const { userVerification } = require("./use-cases/verfication_code");
 const { updatePostCaption } = require("./use-cases/edit-post");
+const { deletePost } = require("./use-cases/delete-post");
 
 const UserServices = {
   refreshToken,
@@ -39,6 +40,7 @@ const PostServices = {
   showPostDetail,
   addLike,
   updatePostCaption,
+  deletePost,
 };
 module.exports = {
   UserServices,

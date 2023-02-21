@@ -24,6 +24,12 @@ postRouter.put(
 );
 
 postRouter.post(
+  "/delete-post",
+  makeAuthMiddleware({ tokenType: "access" }),
+  postController.postdeletePost
+);
+
+postRouter.post(
   "/add-like",
   makeAuthMiddleware({ tokenType: "access" }),
   postController.postAddLike

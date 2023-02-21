@@ -1,9 +1,9 @@
 const { Post } = require("../../models");
 
 // Funktion zum Aktualisieren der Post-Caption
-async function updatePostCaption({ postId, newCaption }) {
+async function updatePostCaption(postId, newCaption) {
   try {
-    console.log(postId, newCaption);
+    console.log("usecase", postId, newCaption);
     // Suche den Post mit der gegebenen ID in der Datenbank
     const post = await Post.findById(postId);
 
