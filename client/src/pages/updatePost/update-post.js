@@ -106,9 +106,10 @@ const UpdatePost = ({ token }) => {
         <img className="post-img" src={postInfo?.post?.img.url}></img>
       </div>
       <div className="caption-section">
-        <p className="updatecaption"> caption: {postInfo?.post?.caption}</p>
+        <p className="caption-caption">caption :</p>
+        <p className="updatecaption"> {postInfo?.post?.caption}</p>
       </div>
-      <formgroup>
+      <formgroup id="formgroup-update">
         <input
           className="forget-passwort"
           type="text"
@@ -116,7 +117,7 @@ const UpdatePost = ({ token }) => {
           value={caption}
           onChange={(e) => setCaption(e.target.value)}
         />
-        <label for="email">
+        <label id="label-update" for="email">
           <br />
           caption
         </label>

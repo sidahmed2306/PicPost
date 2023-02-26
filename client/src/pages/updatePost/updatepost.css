@@ -11,5 +11,16 @@
   font-size: 20px;
 }
 .updateimg {
-  margin-left: 5px;
+  /* margin-left: 5px; */
+}
+.caption-caption {
+  font-family: Urbanist;
+  font-weight: 700;
+  font-size: 20px;
+}
+#formgroup-update {
+  padding: 10px;
+}
+#label-update {
+  padding-left: 10px;
 }
