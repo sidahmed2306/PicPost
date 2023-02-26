@@ -17,6 +17,17 @@ postRouter.post(
   makeAuthMiddleware({ tokenType: "access" }),
   postController.postAddComment
 );
+postRouter.put(
+  "/edit-post",
+  makeAuthMiddleware({ tokenType: "access" }),
+  postController.putEditPost
+);
+
+postRouter.post(
+  "/delete-post",
+  makeAuthMiddleware({ tokenType: "access" }),
+  postController.postdeletePost
+);
 
 postRouter.post(
   "/add-like",

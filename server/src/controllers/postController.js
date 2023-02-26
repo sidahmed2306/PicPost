@@ -36,6 +36,27 @@ const getShowPostDetail = catchErrors(async (req, res) => {
     result,
   });
 });
+const putEditPost = catchErrors(async (req, res) => {
+  const postId = req.body.id;
+  const caption = req.body.caption;
+
+  const result = await PostServices.updatePostCaption(postId, caption);
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
+
+const postdeletePost = catchErrors(async (req, res) => {
+  const postId = req.body.id;
+  console.log("postId", postId);
+
+  const result = await PostServices.deletePost(postId);
+  return res.json({
+    status: "ok",
+    result,
+  });
+});
 
 const postAddComment = catchErrors(async (req, res) => {
   const postId = req.params.id;
@@ -71,4 +92,6 @@ module.exports = {
   postAddComment,
   getShowPostDetail,
   postAddLike,
+  putEditPost,
+  postdeletePost,
 };

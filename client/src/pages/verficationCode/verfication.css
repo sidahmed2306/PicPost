@@ -1,5 +1,5 @@
 #wrapper {
-  font-family: Lato;
+  font-family: Urbanist;
   font-size: 1.5rem;
   text-align: center;
   box-sizing: border-box;
@@ -9,7 +9,6 @@
   justify-content: center;
 }
 #dialog {
-  border: solid 1px #ccc;
   margin: 10px auto;
   padding: 20px 30px;
   display: flex;

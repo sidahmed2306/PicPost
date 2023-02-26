@@ -16,6 +16,7 @@ import ProfileDetail from "./pages/Profile/ProfileDetail";
 import Protected from "./components/Protected";
 import VerficationCode from "./pages/verficationCode/verficationCode";
 import { apiBaseUrl } from "./api";
+import UpdatePost from "./pages/updatePost/update-post";
 function App() {
   const [token, setToken] = useState("");
   useEffect(() => {
@@ -104,6 +105,16 @@ function App() {
               </Protected>
             }
           />
+
+          <Route
+            path="/updatpost/:id"
+            element={
+              <Protected token={token} setToken={setToken}>
+                <UpdatePost token={token} />
+              </Protected>
+            }
+          />
+
           <Route
             path="/search"
             element={

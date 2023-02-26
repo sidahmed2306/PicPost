@@ -87,6 +87,7 @@ export default function HomePage({ token }) {
             </Link>
           </div>
         </div>
+
         {result.map((elt, i) => (
           <Post
             key={i}
