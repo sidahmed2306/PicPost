@@ -13,7 +13,14 @@ async function forgotPassword({ email }) {
   const passwordResetToken = createToken(user, "password-reset");
   const passwordResetLink = `${process.env.FRONTEND_URL}/reset-password/${passwordResetToken}`;
 
-  const message = passwordResetLink;
+  const message = `
+    Hi ${user.firstName}!
+
+    Here is your requested Link: <a href="${passwordResetLink}">Reset password</a>
+
+    Yours,
+   Picpost Team
+  `;
 
   const sent = await sendMail({
     to: user.email,

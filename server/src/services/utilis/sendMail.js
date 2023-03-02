@@ -37,7 +37,7 @@ function sendMail({ to, subject, message, html }) {
         to,
         subject,
         message,
-        html: html ? html : message.replaceAll("\n", "<br/>"),
+        html: html ? html : message.replace("\n", "<br/>"),
       });
     })
     .then((sentMessageInfo) => {
