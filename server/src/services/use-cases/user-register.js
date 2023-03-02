@@ -42,12 +42,11 @@ async function userRegister({
     profilPicture,
   });
   const message = `
-  Hi ${newUser.firstName}!
+  <p>Hi ${newUser.firstName}!</p>
+  <p>Here is your verfication code:${newUser.verificationCode}</p>
 
-  Here is your verfication code:${newUser.verificationCode}
-
-  Yours,
- Picpost Team
+  <p>Yours,</p>
+ <p>Picpost Team</p>
 `;
 
   const sent = await sendVerficationMail({
